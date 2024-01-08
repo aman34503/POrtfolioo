@@ -1,5 +1,4 @@
 import React from "react";
-
 import { motion } from "framer-motion";
 import "./style.css";
 
@@ -27,6 +26,14 @@ const TextVariant = {
       ease: "easeInOut",
     },
   },
+  // hover: {
+  //   color: "#1F51FF",
+  //   transition: {
+  //     duration: 0.3,
+  //     type: "tween",
+  //     ease: "easeInOut",
+  //   },
+  // },
 };
 
 const PageHeader = () => {
@@ -39,12 +46,20 @@ const PageHeader = () => {
         animate="animate"
       >
         <span>
-          <motion.h1 variants={TextVariant}>
-            Hello<em>.</em>
+          <motion.h1 variants={TextVariant} whileHover="hover">
+            hi there<em>.</em>
           </motion.h1>
         </span>
         <span>
-          <motion.h1 variants={TextVariant}>I am Aman Shrivastava</motion.h1>
+          <motion.h1 variants={TextVariant} whileHover="hover">
+            Aman
+          </motion.h1>
+          <motion.h1 variants={TextVariant} whileHover="hover">
+            Shrivastava
+          </motion.h1>
+          <motion.h2 variants={TextVariant} whileHover="hover">
+             Developer and front-end software engineer in half.
+          </motion.h2>
         </span>
       </motion.div>
     </>

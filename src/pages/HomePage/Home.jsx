@@ -1,10 +1,7 @@
-import React from "react";
-
+import React, { useEffect, useRef } from "react";
 import "./style.css";
-
 import { WorkData } from "../../data/WorkData";
 import { motion } from "framer-motion";
-
 import {
   ContactBtn,
   PageHeader,
@@ -20,29 +17,66 @@ import {
   FooterNav,
   SkillsBox,
 } from "../../components";
+import Experience from "../../components/Experience/Experience";
 
 const Home = () => {
-
   const WCard = WorkData.map((work) => {
     return <WorkCard key={work.id} work={work} />;
   });
 
+  const vantaRef = useRef(null);
+
+  useEffect(() => {
+    // Initialize Vanta.js on component mount
+    if (vantaRef.current) {
+      window.VANTA.BIRDS({
+        el: vantaRef.current,
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 300.00,
+        minWidth: 100.00,
+        scale: 0.80,
+        scaleMobile: 1.00,
+        backgroundColor: 0x0,
+        color1: 0xffffff,
+        color2: 0xffffff,
+        birdSize: 1.10,
+        wingSpan: 14.00,
+        speedLimit: 3.00,
+        separation: 21.00,
+        alignment: 1.00,
+        cohesion: 69.00,
+        quantity: 1.00
+      });
+    }
+
+    // Clean up Vanta.js on component unmount
+    return () => {
+      if (vantaRef.current) {
+        window.VANTA.BIRDS.destroy();
+      }
+    };
+  }, []);
+
   return (
-    <>
-      <motion.div
-        className="page"
-        exit={{ x: "-100vw" }}
-        transition={{ ease: "easeInOut" }}
-      >
-        <div className="head-wrap" id="home">
-          <Nav />
-          <div className="head">
-            <PageHeader />
-            <SkillsIntro />
-          </div>
+<>
+    <motion.div
+      className="page"
+      exit={{ x: "-100vw" }}
+      transition={{ ease: "easeInOut" }}
+    >
+      <div className="head-wrap" id="home" ref={vantaRef}>
+        <Nav />
+        <div className="head">
+          <PageHeader />
+          <SkillsIntro />
         </div>
+
         <div className="container">
           <section className="intro">
+            {/* Your existing intro section */}
+            <div className="vanta-container"></div>
             <ContactBtn />
             <Intro />
             <div className="resume-btn-wrap">
@@ -55,17 +89,23 @@ const Home = () => {
             </div>
           </section>
           <section className="work" id="work">
+            {/* Your existing works section */}
             <SectionTitle title="Selected Works :" />
             <div className="projects-wrap">{WCard}</div>
           </section>
+          <section className="experience" id="experience">
+          {/* New experience section */}
+          <SectionTitle title="Experience :" />
+          <Experience/>
+        </section>
           <section className="skills">
-            <article>
+                        <article>
               <SectionTitle title="My_ Skills" />
             </article>
             <SkillsBox />
           </section>
           <section className="about" id="about">
-            <article>
+                        <article>
               <SectionTitle title="About Me and _Myself :" />
             </article>
             <div>
@@ -74,7 +114,7 @@ const Home = () => {
             </div>
           </section>
           <section className="contact" id="connect">
-            <article>
+                        <article>
               <SectionTitle
                 title="Let's Have a Talk !"
                 fontSize="clamp(36px, 20px + 7vw, 80px)"
@@ -89,8 +129,9 @@ const Home = () => {
             </footer>
           </section>
         </div>
-      </motion.div>
-    </>
+      </div>
+    </motion.div>
+</>
   );
 };
 

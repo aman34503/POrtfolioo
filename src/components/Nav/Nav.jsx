@@ -1,5 +1,6 @@
 import React from "react";
 // import NavLink from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./style.css";
 import { motion } from "framer-motion";
 
@@ -24,6 +25,12 @@ const Nav = () => {
             </li>
             <li>
               <a href="#work">Work</a>
+            </li>
+            <li>
+              <a href="#experience">Experience</a>
+            </li>
+            <li>
+              <Link to="/blog">Blog</Link>
             </li>
             <li>
               <a href="#about">About</a>

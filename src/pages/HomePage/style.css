@@ -2,6 +2,8 @@
 .page {
   background-color: rgb(10, 10, 10);
   overflow: hidden;
+  position: relative;
+
 }
 
 /*## --------Navbar and Header-------- #*/
@@ -11,6 +13,13 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 65px 65px 0 65px;
+  
+}
+
+.vanta-canvas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .head {
@@ -56,7 +65,7 @@
 .projects-wrap {
   display: flex;
   flex-direction: column;
-  /* padding: 0 50px; */
+  padding: 0 50px;
   gap: 150px;
 }
 .about {
