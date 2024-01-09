@@ -88,16 +88,15 @@ const Home = () => {
               />
             </div>
           </section>
+          <section className="experience" id="experience">
+          <SectionTitle title="Experience :" />
+          <Experience/>
+        </section>
           <section className="work" id="work">
             {/* Your existing works section */}
             <SectionTitle title="Selected Works :" />
             <div className="projects-wrap">{WCard}</div>
           </section>
-          <section className="experience" id="experience">
-          {/* New experience section */}
-          <SectionTitle title="Experience :" />
-          <Experience/>
-        </section>
           <section className="skills">
                         <article>
               <SectionTitle title="My_ Skills" />

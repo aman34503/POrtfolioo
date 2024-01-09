@@ -24,10 +24,10 @@ const Nav = () => {
               <a href="#home"> Home </a>
             </li>
             <li>
-              <a href="#work">Work</a>
+              <a href="#experience">Experience</a>
             </li>
             <li>
-              <a href="#experience">Experience</a>
+              <a href="#work">Work</a>
             </li>
             <li>
               <Link to="/blog">Blog</Link>
