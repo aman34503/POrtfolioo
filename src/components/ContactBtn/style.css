@@ -1,17 +1,37 @@
-.contact-btn {
-  position: relative;
-  width: 400px;
-  height: 400px;
-  right: 200px;
-  border-right: 1px solid rgb(131, 131, 131);
-  border-bottom: 1px solid rgb(131, 131, 131);
-  border-left: 1px solid rgb(131, 131, 131);
-  border-top: 1px solid transparent;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.baby-pink-box {
+  background-color: #ffebee; /* Baby pink color */
+  padding: 16px;
+  border-radius: 5px;
+  margin-top: 20px;
+  z-index: -1;
 }
+
+.schedule-meet-btn {
+  padding: 10px;
+  background-color: #000;
+  border-radius: 5px;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
+  cursor: pointer;
+
+}
+
+.schedule-meet-btn:hover {
+  background-color: #333;
+  cursor: pointer;
+}
+
+.cta-btn {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.cta-btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+
 @media screen and (max-width: 884px) {
   .contact-btn {
     right: 80px;
@@ -25,19 +45,4 @@
     width: 250px;
     height: 250px;
   }
-}
-.contact-btn h3 {
-  transform: rotate(-45deg);
-  overflow: hidden;
-}
-
-.contact-btn a {
-  text-decoration: none;
-  color: rgba(255, 254, 210, 0.575);
-  font-size: clamp(13px, 10px + 2vw, 27px);
-  font-weight: 100;
-  letter-spacing: 4px;
-}
-.contact-btn a:hover {
-  color: white;
 }

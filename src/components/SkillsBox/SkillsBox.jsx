@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+
 import "./style.css";
 const SkillsBox = () => {
   const Skills = {
@@ -22,9 +24,13 @@ const SkillsBox = () => {
 
   return (
     <>
+    <div className="container">
+    <motion.h2 className="title">
+         Skills : 
+        </motion.h2>
       <div className="skills-wrap">
         <div className="skills-colomn-wrap">
-          <h3>As Web-Developer</h3>
+          <motion.h3>As Web-Developer</motion.h3>
           <ul>
             {Skills.WebSkills.map((skill, index) => {
               return <li key={index}>{skill}</li>;
@@ -32,7 +38,7 @@ const SkillsBox = () => {
           </ul>
         </div>
         <div className="skills-colomn-wrap">
-          <h3>As Competetive-Programmer</h3>
+          <motion.h3>As Competetive-Programmer</motion.h3>
           <ul>
             {Skills.CompetetiveSkills.map((skill, index) => {
               return <li key={index}>{skill}</li>;
@@ -40,13 +46,14 @@ const SkillsBox = () => {
           </ul>
         </div>
         <div className="skills-colomn-wrap">
-          <h3>Extras</h3>
+          <motion.h3>Extras</motion.h3>
           <ul>
             {Skills.Extras.map((skill, index) => {
               return <li key={index}>{skill}</li>;
             })}
           </ul>
         </div>
+      </div>
       </div>
     </>
   );

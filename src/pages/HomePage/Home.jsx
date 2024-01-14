@@ -1,16 +1,13 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import "./style.css";
-import { WorkData } from "../../data/WorkData";
 import { motion } from "framer-motion";
 import {
   ContactBtn,
   PageHeader,
   SkillsIntro,
-  CTABtn,
   Intro,
   Nav,
   SectionTitle,
-  WorkCard,
   AboutText,
   SocialConnect,
   ContactEmail,
@@ -18,46 +15,12 @@ import {
   SkillsBox,
 } from "../../components";
 import Experience from "../../components/Experience/Experience";
+import WorkCard from "../../components/WorkCard/WorkCard";
 
 const Home = () => {
-  const WCard = WorkData.map((work) => {
-    return <WorkCard key={work.id} work={work} />;
-  });
 
-  const vantaRef = useRef(null);
 
-  useEffect(() => {
-    // Initialize Vanta.js on component mount
-    if (vantaRef.current) {
-      window.VANTA.BIRDS({
-        el: vantaRef.current,
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 300.00,
-        minWidth: 100.00,
-        scale: 0.80,
-        scaleMobile: 1.00,
-        backgroundColor: 0x0,
-        color1: 0xffffff,
-        color2: 0xffffff,
-        birdSize: 1.10,
-        wingSpan: 14.00,
-        speedLimit: 3.00,
-        separation: 21.00,
-        alignment: 1.00,
-        cohesion: 69.00,
-        quantity: 1.00
-      });
-    }
 
-    // Clean up Vanta.js on component unmount
-    return () => {
-      if (vantaRef.current) {
-        window.VANTA.BIRDS.destroy();
-      }
-    };
-  }, []);
 
   return (
 <>
@@ -66,7 +29,7 @@ const Home = () => {
       exit={{ x: "-100vw" }}
       transition={{ ease: "easeInOut" }}
     >
-      <div className="head-wrap" id="home" ref={vantaRef}>
+      <div className="head-wrap" id="home" >
         <Nav />
         <div className="head">
           <PageHeader />
@@ -76,31 +39,26 @@ const Home = () => {
         <div className="container">
           <section className="intro">
             {/* Your existing intro section */}
-            <div className="vanta-container"></div>
-            <ContactBtn />
             <Intro />
-            <div className="resume-btn-wrap">
-              <CTABtn
+              <ContactBtn
                 text="Resume"
-                link="https://drive.google.com/file/d/1yDhzoSGlxO3VFMEo2wbi4G6YuX20hbE9/view?usp=sharing"
+                link="https://drive.google.com/file/d/1oBfmyTJUrsZ1_JcmGair9MEE0cOIRjmr/view?usp=sharing"
                 padding="clamp(8px, 2px + 1vw, 10px)"
                 width="clamp(120px, 90px + 10vw ,220px)"
               />
+            <div className="resume-btn-wrap">
             </div>
           </section>
           <section className="experience" id="experience">
-          <SectionTitle title="Experience :" />
           <Experience/>
         </section>
+
           <section className="work" id="work">
-            {/* Your existing works section */}
-            <SectionTitle title="Selected Works :" />
-            <div className="projects-wrap">{WCard}</div>
+            <WorkCard/>
           </section>
+
           <section className="skills">
-                        <article>
-              <SectionTitle title="My_ Skills" />
-            </article>
+              
             <SkillsBox />
           </section>
           <section className="about" id="about">

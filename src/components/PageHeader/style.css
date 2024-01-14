@@ -1,7 +1,29 @@
-.text-area {
-  display: flex;
-  flex-direction: column;
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
 }
+
+.about-me-aman h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.about-me-aman h4 {
+  font-size: 1.2em;
+  margin: 5px 0;
+}
+
+.about-me h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.about-me p {
+  font-size: 1em;
+  line-height: 1.6;
+}
+
 .text-area span {
   overflow: hidden;
 }
