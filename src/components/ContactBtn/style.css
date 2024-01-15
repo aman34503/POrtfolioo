@@ -1,21 +1,30 @@
+
+
 .baby-pink-box {
-  background-color: #ffebee; /* Baby pink color */
-  padding: 16px;
+  background-color: #ffeced; /* Baby pink color */
+  padding: 26px;
   border-radius: 5px;
   margin-top: 20px;
-  z-index: -1;
+}
+
+.front{
+  margin-bottom: 10px;
+}
+
+.second{
+  margin-bottom: 10px;
+
 }
 
 .schedule-meet-btn {
   padding: 10px;
-  background-color: #000;
+  background-color: #222;
   border-radius: 5px;
   text-align: center;
   color: #fff;
   text-decoration: none;
   margin-right: 10px;
   cursor: pointer;
-
 }
 
 .schedule-meet-btn:hover {
@@ -33,14 +42,15 @@
 }
 
 @media screen and (max-width: 884px) {
-  .contact-btn {
+  .contact-container {
     right: 80px;
     width: 300px;
     height: 300px;
   }
 }
+
 @media screen and (max-width: 664px) {
-  .contact-btn {
+  .contact-container {
     right: 0;
     width: 250px;
     height: 250px;

@@ -1,13 +1,13 @@
 /*### -------WholePageBody-------- #*/
 .page {
-  background-color: #e5e7eb;
+  background-color: #ffffff;
   overflow: hidden;
   position: relative;
 }
 
 /*## --------Navbar and Header-------- #*/
 .head-wrap {
-  color: rgb(0, 0, 0);
+  color: #222222;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -36,7 +36,9 @@
   gap: 170px;
   width: 100%;
 }
-
+.talk-title {
+  color: #000000; /* Add your desired color value here */
+}
 .skills article {
   width: 100%;
   display: flex;
@@ -50,7 +52,7 @@
   margin-bottom: 50px;
 }
 .contact {
-  margin-top: 100px;
+  margin-top: 60px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -65,7 +67,7 @@ footer {
   justify-content: space-between;
 }
 .footer-content {
-  color: white;
+  color: rgb(0, 0, 0);
   display: flex;
   margin-top: 80px;
   margin-bottom: 30px;

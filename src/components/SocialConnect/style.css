@@ -1,26 +1,30 @@
+/* style.css */
+
 .one-social-wrap {
-  color: white;
   display: flex;
   align-items: center;
   gap: 10px;
 }
+
 .socials-wrap {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 50px;
+  gap: 30px;
   margin-top: 80px;
   margin-bottom: 30px;
 }
+
 .socials-name {
   position: relative;
   display: inline-block;
   font-size: clamp(18px, 10px + 2.5vw, 30px);
   text-decoration: none;
-  color: rgb(255, 245, 232);
+  color: #000000;
   font-family: "panchang", sans-serif;
   font-weight: 800;
 }
+
 .socials-name:after {
   content: "";
   position: absolute;
@@ -29,7 +33,7 @@
   height: 3px;
   bottom: 0;
   right: 0;
-  background-color: #fffff0;
+  background-color: #005cc5;
   transform-origin: bottom right;
   transition: transform 0.5s cubic-bezier(0, 0, 0.44, 1.1);
 }
@@ -38,6 +42,7 @@
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+
 @media screen and (max-width: 540px) {
   .socials-wrap {
     gap: 20px;

@@ -25,9 +25,9 @@ const SkillsBox = () => {
   return (
     <>
     <div className="container">
-    <motion.h2 className="title">
+    <motion.h1 className="title">
          Skills : 
-        </motion.h2>
+        </motion.h1>
       <div className="skills-wrap">
         <div className="skills-colomn-wrap">
           <motion.h3>As Web-Developer</motion.h3>

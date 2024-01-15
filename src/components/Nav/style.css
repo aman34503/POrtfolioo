@@ -1,5 +1,5 @@
 .nav {
-  position:fixed !important;
+  position: fixed !important;
   right: 50px;
   width: 100%;
 }
@@ -22,7 +22,7 @@
   gap: 30px;
   text-decoration: none;
   list-style-type: none;
-  font-family: "panchang", sans-serif;
+  font-family: sans-serif;
   font-weight: 700;
   font-size: clamp(12px, 8px + 2vw, 18px);
 }

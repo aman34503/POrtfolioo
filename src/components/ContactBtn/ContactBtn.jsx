@@ -45,12 +45,12 @@ const ContactBtn = (props) => {
       }}
     >
       <div className="baby-pink-box">
-        <h4>
+        <h4 className="front">
           I am currently open for full-time engineering roles, which involves
           user interface and experience design, frontend engineering as the
           core.
         </h4>
-        <p>
+        <p className="second">
           A collaborative team of engineers and designers, who are building
           great products. Interested in working together? Feel free to schedule
           a meet!

@@ -7,7 +7,7 @@
   display: flex;
   justify-content: flex-end;
   width: 50%;
-  color: #ffefda;
+  color: #000000;
 }
 .mail-text-wrap p {
   width: 45%;
@@ -16,17 +16,18 @@
   font-weight: 400;
   letter-spacing: -0.8px;
 }
-.mail-wrap {
+/* .mail-wrap {
   display: flex;
+  color: #000000;
   justify-content: flex-end;
   width: 50%;
-}
+} */
 
 .contact-mail {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #dfd3c3;
+  color: #000000;
   line-height: 1.2rem;
   background: 0 0;
   border: none;
@@ -39,7 +40,7 @@
   font-size: 25px;
   font-weight: 700;
   text-decoration: none;
-  color: #dfd3c3;
+  color: #000000;
   z-index: 99;
 }
 .contact-mail::after {

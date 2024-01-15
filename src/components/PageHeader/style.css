@@ -28,7 +28,7 @@
   overflow: hidden;
 }
 .text-area h1 {
-  font-family: "panchang", sans-serif;
+  font-family:  sans-serif;
   font-size: clamp(26px, 25px + 3vw, 70px);
   line-height: 5.5rem;
   font-weight: 300;
