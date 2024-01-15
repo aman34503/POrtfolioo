@@ -1,6 +1,7 @@
+// Nav.js
+
 import React from "react";
-// import NavLink from "react-router-dom";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./style.css";
 import { motion } from "framer-motion";
 
@@ -21,22 +22,10 @@ const Nav = () => {
         <div className="main-menue">
           <ul>
             <li>
-              <a href="#home"> Home </a>
+              <NavLink exact to="/">Home</NavLink>
             </li>
             <li>
-              <a href="#experience">Experience</a>
-            </li>
-            <li>
-              <a href="#work">Work</a>
-            </li>
-            <li>
-              <Link to="/blog">Blog</Link>
-            </li>
-            <li>
-              <a href="#about">About</a>
-            </li>
-            <li>
-              <a href="#connect">Connect</a>
+              <NavLink to="/blog">Blog</NavLink>
             </li>
           </ul>
         </div>

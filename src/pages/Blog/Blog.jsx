@@ -1,6 +1,10 @@
+// Blog.jsx
+
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Nav } from "../../components";
+
+import "./style.css";
 
 const Blog = () => {
   const [blogPosts, setBlogPosts] = useState([]);
@@ -18,6 +22,7 @@ const Blog = () => {
                 cuid
                 coverImage
                 title
+                slug
               }
             }
           }
@@ -43,31 +48,42 @@ const Blog = () => {
   }, []);
 
   return (
-    <motion.section
-      className="blog-section"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{
-        duration: 1,
-        type: "tween",
-        ease: "easeInOut",
-      }}
-    >
-      <div className="head-wrap" id="home">
+    <div className="blog-container">
+      <motion.div
+        className="page-blog"
+        exit={{ x: "-100vw" }}
+        transition={{ ease: "easeInOut" }}
+      >
         <Nav />
-        
-      </div>
-      <ul>
-        <div className="blog-posts">
-          {blogPosts.map((post) => (
-            <div key={post._id} className="blog-post">
-              <img src={post.coverImage} alt={post.title} />
-              <h3>{post.title}</h3>
-            </div>
-          ))}
-        </div>
-      </ul>
-    </motion.section>
+        <motion.section
+          className="blog-section"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            duration: 1,
+            type: "tween",
+            ease: "easeInOut",
+          }}
+        >
+          <ul className="blog-posts">
+            {blogPosts.map((post) => (
+              <li key={post._id} className="blog-post">
+                <a
+                  href={`https://aman04.hashnode.dev/${post.slug}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="blog-box">
+                    <img src={post.coverImage} alt={post.title} />
+                    <h3>{post.title}</h3>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </motion.section>
+      </motion.div>
+    </div>
   );
 };
 

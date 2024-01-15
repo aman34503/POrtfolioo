@@ -56,7 +56,7 @@ const ContactBtn = (props) => {
           a meet!
         </p>
         <a
-          href="https://cal.com"
+          href="https://cal.com/aman-shrivastava-9g6y8y"
           target="_blank"
           rel="noopener noreferrer"
           className="schedule-meet-btn"
