@@ -65,6 +65,10 @@ const Blog = () => {
             ease: "easeInOut",
           }}
         >
+
+          <motion.h1>
+            Blogs :
+          </motion.h1>
           <ul className="blog-posts">
             {blogPosts.map((post) => (
               <li key={post._id} className="blog-post">

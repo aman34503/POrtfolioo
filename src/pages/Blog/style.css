@@ -1,23 +1,28 @@
+/* Add this to your existing CSS */
+
 .page-blog {
   background-color: #f8f8f8;
   padding: 20px;
   margin: 0;
-  height: 100%; /* Set fixed height to full page height */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .blog-section {
-  padding: 50px;
+  padding: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
-  width: 60%;
-  max-width: 100%; /* Set max-width to 100% to ensure responsiveness */
-  margin-left: auto;
+  width: 100%;
+  max-width: 800px; 
   margin-right: auto;
 }
 
 .blog-posts {
   display: grid;
   gap: 20px;
+  margin-top: 30px;
 }
 
 .blog-post {
@@ -25,74 +30,28 @@
 }
 
 .blog-box {
-  background-color: #fff;
-  border: 1px solid #ddd;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 52px;
   transition: transform 0.3s ease-in-out;
+  padding: 15px;
 }
 
 .blog-box:hover {
   transform: scale(1.05);
+}
+
+.blog-box h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .blog-box img {
   width: 100%;
-  height: 80px;
   object-fit: cover;
-  border-bottom: 1px solid #ddd;
-}
-
-.blog-box h3 {
-  padding: 15px;
-  font-size: 18px;
-  margin: 0;
-}
-
-.blog-box a {
-  text-decoration: none;
-  color: #333;
 }
 
 @media screen and (max-width: 768px) {
   .blog-section {
-    width: 90%; /* Adjust width for smaller screens */
+    width: 90%;
   }
-
-  .blog-posts {
-    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
-  }
-}
-
-/* Add this to your existing CSS */
-
-.terminal-icon {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.blog-box {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-  padding: 15px;
-}
-
-.blog-box:hover {
-  transform: scale(1.05);
-}
-
-.blog-box h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.blog-box p {
-  font-size: 14px;
-  color: #555;
 }

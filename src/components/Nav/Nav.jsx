@@ -1,11 +1,19 @@
 // Nav.js
 
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import "./style.css";
 import { motion } from "framer-motion";
+import { FaSun, FaMoon } from "react-icons/fa";
+import "./style.css";
 
 const Nav = () => {
+  const [isDarkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode((prevMode) => !prevMode);
+    document.body.classList.toggle("dark-mode");
+  };
+
   return (
     <>
       <motion.nav
@@ -19,16 +27,27 @@ const Nav = () => {
           delay: 0.8,
         }}
       >
-        <div className="main-menue">
+        <div className="main-menu">
           <ul>
             <li>
-              <NavLink exact to="/">Home</NavLink>
+              <NavLink exact to="/">
+                Home
+              </NavLink>
             </li>
             <li>
               <NavLink to="/blog">Blog</NavLink>
             </li>
+            <li>
+              <NavLink to="/contact">Contact</NavLink>
+            </li>
           </ul>
         </div>
+        <div className="dark-mode-toggle" onClick={toggleDarkMode}>
+          {isDarkMode ? <FaSun /> : <FaMoon />}
+        </div>
+        <button className="theme-toggle" onClick={toggleDarkMode}>
+          {isDarkMode ? "Light Mode" : "Dark Mode"}
+        </button>
       </motion.nav>
     </>
   );

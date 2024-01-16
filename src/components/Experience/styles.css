@@ -1,12 +1,15 @@
+/* styles.css */
 
-h2 {
-  font-size: 1.8em;
-  margin-bottom: 20px;
-}
-
+/* Common styles for both desktop and mobile */
 .work-history {
-  margin-top: 20px;
+  margin-top: 10px;
 }
+
+.experience-title {
+  margin-top: 12px;
+    margin-bottom: 20px;
+}
+
 
 .experience-item {
   display: flex;
@@ -20,30 +23,51 @@ h2 {
 }
 
 .emoji.rocket {
-  color: rgb(0, 68, 255)/* Color for the rocket icon */
-}
-
-.emoji.file {
-  color: #3498db; /* Color for the file icon */
-}
-
-.emoji.laptop {
-  color: rgb(0, 68, 255); /* Color for the laptop icon */
-}
-
-.emoji.javascript{
   color: rgb(0, 68, 255);
 }
 
-.emoji.react{
-color: rgb(0, 68, 255) ;
+.emoji.file {
+  color: #3498db;
 }
 
-.emoji.python{
-  color: rgb(0, 68, 255) ;
-  }
+.emoji.laptop {
+  color: rgb(0, 68, 255);
+}
+
+.emoji.javascript {
+  color: rgb(0, 68, 255);
+}
+
+.emoji.react {
+  color: rgb(0, 68, 255);
+}
+
+.emoji.python {
+  color: rgb(0, 68, 255);
+}
 
 p {
   font-size: 1.2em;
   margin: 0;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+  .experience-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .work-history{
+    margin-top: 186px;
+  }
+
+  .emoji {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 1.1em;
+  }
 }

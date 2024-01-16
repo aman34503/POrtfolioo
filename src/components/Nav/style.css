@@ -12,6 +12,7 @@
 @media screen and (max-width: 426px) {
   .main-menue {
     justify-content: center;
+    margin-top: 2px;
   }
   .nav {
     right: 0;

@@ -82,7 +82,7 @@ footer {
     padding: 65px 10px 0 45px;
   }
   .head {
-    margin-top: 70px;
+    margin-top: 40px;
   }
 }
 @media screen and (max-width: 400px) {
@@ -105,7 +105,7 @@ footer {
   .intro {
     width: 100%;
     left: 0;
-    top: 50px;
+    top: 26px;
     right: 20px;
   }
   .work {
@@ -115,7 +115,7 @@ footer {
     gap: 100px;
   }
   .work {
-    margin-top: 150px;
+    margin-top: 38px;
   }
   .skills article {
     margin-bottom: -10px;

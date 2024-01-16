@@ -46,33 +46,36 @@ const ContactBtn = (props) => {
     >
       <div className="baby-pink-box">
         <h4 className="front">
-          I am currently open for full-time engineering roles, which involves
-          user interface and experience design, frontend engineering as the
-          core.
+          🚀 Passionate Software Engineer | Full-Stack Proficiency Hello! 👋 I'm
+          actively seeking full-time roles in software engineering. My expertise
+          spans the entire stack, and I thrive in collaborative environments
+          where innovation and teamwork drive success.
         </h4>
         <p className="second">
-          A collaborative team of engineers and designers, who are building
-          great products. Interested in working together? Feel free to schedule
-          a meet!
+          Let's connect and explore how I can contribute to your team's journey
+          in building exceptional products. Interested in working together? Feel
+          free to schedule a meet!
         </p>
-        <a
-          href="https://cal.com/aman-shrivastava-9g6y8y"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="schedule-meet-btn"
-        >
-          Schedule a meet / cal.com
-        </a>
-        <a href={props.link} target="_blank" rel="noreferrer">
-          <motion.button
-            style={style}
-            className="cta-btn"
-            whileTap={{ scale: 0.9 }}
+        <div className="resume-cta">
+          <a
+            href="https://cal.com/aman-shrivastava-9g6y8y"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="schedule-meet-btn"
           >
-            {props.text}
-            {icons.arrow}
-          </motion.button>
-        </a>
+            Schedule a meet / cal.com
+          </a>
+          <a href={props.link} target="_blank" rel="noreferrer">
+            <motion.button
+              style={style}
+              className="cta-btn"
+              whileTap={{ scale: 0.9 }}
+            >
+              {props.text}
+              {icons.arrow}
+            </motion.button>
+          </a>
+        </div>
       </div>
     </motion.div>
   );
