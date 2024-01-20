@@ -1,18 +1,18 @@
 // Nav.js
 
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-import { FaSun, FaMoon } from "react-icons/fa";
+// import { FaSun, FaMoon } from "react-icons/fa";
 import "./style.css";
 
 const Nav = () => {
-  const [isDarkMode, setDarkMode] = useState(false);
+  // const [isDarkMode, setDarkMode] = useState(false);
 
-  const toggleDarkMode = () => {
-    setDarkMode((prevMode) => !prevMode);
-    document.body.classList.toggle("dark-mode");
-  };
+  // const toggleDarkMode = () => {
+  //   setDarkMode((prevMode) => !prevMode);
+  //   document.body.classList.toggle("dark-mode");
+  // };
 
   return (
     <>
@@ -42,12 +42,12 @@ const Nav = () => {
             </li>
           </ul>
         </div>
-        <div className="dark-mode-toggle" onClick={toggleDarkMode}>
+{/*         <div className="dark-mode-toggle" onClick={toggleDarkMode}>
           {isDarkMode ? <FaSun /> : <FaMoon />}
         </div>
         <button className="theme-toggle" onClick={toggleDarkMode}>
           {isDarkMode ? "Light Mode" : "Dark Mode"}
-        </button>
+        </button> */}
       </motion.nav>
     </>
   );
