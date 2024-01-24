@@ -18,7 +18,7 @@ const SkillsBox = () => {
       "Firebase",
       "GIT and GitHub",
     ],
-    CompetetiveSkills: ["C++/C", "Data Structures", "Algorithms"],
+    Programming: ["C++/C","Python", "Data Structures", "Algorithms"],
     Extras: ["Linux", "VScode", "Bash Scripting"],
   };
 
@@ -40,7 +40,7 @@ const SkillsBox = () => {
         <div className="skills-colomn-wrap">
           <motion.h3>As Competetive-Programmer</motion.h3>
           <ul>
-            {Skills.CompetetiveSkills.map((skill, index) => {
+            {Skills.Programming.map((skill, index) => {
               return <li key={index}>{skill}</li>;
             })}
           </ul>

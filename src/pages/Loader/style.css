@@ -4,8 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(10, 10, 10);
-  color: aliceblue;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 94, 177);
   overflow: hidden;
 }
 .loader-wrap {
@@ -26,11 +26,13 @@
   font-size: 18px;
   font-family: "panchang", sans-serif;
 }
+
+
 .loader-bar {
   position: absolute;
   height: 5px;
   width: 100vw;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(25, 68, 185);
   border-radius: 100px;
   top: 55%;
 }
