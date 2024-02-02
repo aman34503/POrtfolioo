@@ -1,7 +1,14 @@
+/* Add this to your existing CSS or create a new CSS file */
 
 .container {
   max-width: 800px;
   margin: 0 auto;
+}
+
+.about-me-aman {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .about-me-aman h2 {
@@ -12,6 +19,22 @@
 .about-me-aman h4 {
   font-size: 1.2em;
   margin: 5px 0;
+  color: #6b6a6a; 
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  overflow: hidden;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: filter 0.3s ease-in-out;
+}
+
+.profile-image:hover {
+  filter: grayscale(100%);
 }
 
 .about-me h3 {
@@ -27,22 +50,26 @@
 .text-area span {
   overflow: hidden;
 }
+
 .text-area h1 {
-  font-family:  sans-serif;
+  font-family: sans-serif;
   font-size: clamp(26px, 25px + 3vw, 70px);
   line-height: 5.5rem;
   font-weight: 300;
 }
+
 @media screen and (max-width: 825px) {
   .text-area h1 {
     line-height: 5.8rem;
   }
 }
+
 @media screen and (max-width: 665px) {
   .text-area h1 {
     line-height: 5rem;
   }
 }
+
 @media screen and (max-width: 480px) {
   .text-area h1 {
     line-height: 4.2rem;

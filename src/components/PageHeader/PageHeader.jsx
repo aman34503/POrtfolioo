@@ -1,6 +1,9 @@
+// PageHeader.jsx
+
 import React from "react";
 import { motion } from "framer-motion";
 import "./style.css";
+import profileImage from "./amanprofile.jpeg"; // Replace with your image file
 
 const ParentVariant = {
   initial: { opacity: 0, y: 20 },
@@ -10,6 +13,12 @@ const ParentVariant = {
 const TextVariant = {
   initial: { opacity: 0, y: 10 },
   animate: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.2 } },
+};
+
+const ImageVariant = {
+  initial: { scale: 0.8, opacity: 0 },
+  animate: { scale: 1, opacity: 1, transition: { duration: 0.6, delay: 0.4 } },
+  hover: { filter: "grayscale(100%)" },
 };
 
 const PageHeader = () => {
@@ -22,13 +31,24 @@ const PageHeader = () => {
         animate="animate"
       >
         <span className="about-me-aman">
-          <motion.h2 variants={TextVariant}>
-            👋 Hey, I'm Aman<em>.</em>
-          </motion.h2>
-          <motion.h4 variants={TextVariant}>
-            Software Engineer and Front-end Developer.
-          </motion.h4>
-          <motion.h4 variants={TextVariant}>23, he/him</motion.h4>
+          <motion.img
+            src={profileImage}
+            alt="Your Name"
+            variants={ImageVariant}
+            whileHover="hover"
+            className="profile-image"
+          />
+          <div>
+            <motion.h2 variants={TextVariant}>
+              👋 Hey, I'm Aman<em>.</em>
+            </motion.h2>
+            <motion.h4 variants={TextVariant} >
+              Software Engineer and Front-end Developer.
+            </motion.h4>
+            <motion.h4 variants={TextVariant} >
+              23, he/him
+            </motion.h4>
+          </div>
         </span>
       </motion.div>
 

@@ -42,7 +42,6 @@ const Home = () => {
                 padding="clamp(8px, 2px + 1vw, 10px)"
                 width="clamp(120px, 90px + 10vw ,220px)"
               />
-              <div className="resume-btn-wrap"></div>
             </section>
             <section className="experience" id="experience">
               <Experience />

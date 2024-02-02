@@ -52,7 +52,7 @@ const SocialConnect = ({ dim, size }) => {
       <Socials
         icon={FaTwitter}
         text="Twitter"
-        to="https://twitter.com/YourTwitterHandle"
+        to="https://twitter.com/Aman_eth1"
         dimenssion={dim}
         fontSize={size}
       />

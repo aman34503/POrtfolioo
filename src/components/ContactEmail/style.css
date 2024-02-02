@@ -32,7 +32,7 @@
   background: 0 0;
   border: none;
   outline: 0;
-  font-family: "panchang", sans-serif;
+  font-family: "panchang", sans-serif, ;
   position: relative;
 }
 .contact-mail a {

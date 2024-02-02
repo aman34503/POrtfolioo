@@ -25,7 +25,8 @@ const icons = {
 const ContactBtn = (props) => {
   const style = {
     width: `${props.width}`,
-    backgroundColor: "white",
+    backgroundColor: "#0353A4",
+    color : "#FFFFFF",
     border: "none",
     padding: `${props.padding}`,
     fontSize: "clamp(12px, 4px + 3vw, 18px)",
