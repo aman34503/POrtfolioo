@@ -22,27 +22,13 @@
   margin-right: 10px;
 }
 
-.emoji.rocket {
-  color: rgb(0, 68, 255);
-}
-
-.emoji.file {
-  color: #3498db;
-}
-
-.emoji.laptop {
-  color: rgb(0, 68, 255);
-}
-
-.emoji.javascript {
-  color: rgb(0, 68, 255);
-}
-
-.emoji.react {
-  color: rgb(0, 68, 255);
-}
-
-.emoji.python {
+.emoji.file,
+.emoji.javascript,
+.emoji.laptop,
+.emoji.react,
+.emoji.rocket,
+.emoji.python,
+.emoji.briefcase {
   color: rgb(0, 68, 255);
 }
 

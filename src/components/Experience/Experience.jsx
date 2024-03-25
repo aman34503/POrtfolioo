@@ -1,7 +1,7 @@
 // Experience.js
 import React from "react";
 import { motion } from "framer-motion";
-import { FaRocket, FaLaptopCode, FaReact, FaPython } from "react-icons/fa";
+import { FaRocket, FaLaptopCode, FaReact, FaPython, FaBriefcase } from "react-icons/fa";
 import { RiJavascriptFill } from "react-icons/ri";
 import { MdWebhook } from "react-icons/md";
 import "./styles.css"; // Import the CSS file
@@ -14,6 +14,7 @@ const icons = {
   javascript: <RiJavascriptFill className="emoji javascript" />,
   react: <FaReact className="emoji react" />,
   python: <FaPython className="emoji python" />,
+  briefcase: <FaBriefcase className="emoji briefcase" />,
 };
 
 const Experience = () => {

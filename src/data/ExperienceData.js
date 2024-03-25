@@ -3,9 +3,24 @@
 export const ExperienceData = [
   {
     id: 1,
+    title: "Full Stack Devloper",
+    company: "Robro Systems",
+    date: "Jan 2024 - Present",
+    duration: "4 mos",
+    skills: [
+      "Artificial Intelligence (AI)",
+      "Machine Learning",
+      "Back-End Web Development",
+      "Customer Service",
+      "Front-end Development",
+    ],
+    icon: "briefcase",
+  },
+  {
+    id: 2,
     title: "Software Engineer trainee",
     company: "Robro Systems",
-    date: "May 2023 - Present",
+    date: "May 2023 - Jan 2024",
     duration: "9 mos",
     skills: [
       "Artificial Intelligence (AI)",
@@ -17,7 +32,7 @@ export const ExperienceData = [
     icon: "rocket",
   },
   {
-    id: 2,
+    id: 3,
     title: "Student Research Associate",
     company: "Indian Institute of Technology, Kanpur",
     date: "Aug 2022 - Sep 2022",
@@ -26,7 +41,7 @@ export const ExperienceData = [
     icon: "python",
   },
   {
-    id: 3,
+    id: 4,
     title: "React Developer",
     company: "Payonetime",
     date: "May 2022 - Jul 2022",
@@ -35,7 +50,7 @@ export const ExperienceData = [
     icon: "react",
   },
   {
-    id: 4,
+    id: 5,
     title: "Freelance Web Developer",
     company: "CodiPhi Solutions",
     date: "Feb 2022 - May 2022",
@@ -44,7 +59,7 @@ export const ExperienceData = [
     icon: "file",
   },
   {
-    id: 5,
+    id: 6,
     title: "Full Stack Developer",
     company: "Cantilever Labs",
     date: "Dec 2021 - Mar 2022",
@@ -62,7 +77,7 @@ export const ExperienceData = [
     icon: "javascript",
   },
   {
-    id: 6,
+    id: 7,
     title: "Frontend Developer",
     company: "Tech Tomatoes",
     date: "Jun 2021 - Aug 2021",

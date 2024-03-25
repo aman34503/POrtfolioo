@@ -43,7 +43,7 @@ const PageHeader = () => {
               👋 Hey, I'm Aman<em>.</em>
             </motion.h2>
             <motion.h4 variants={TextVariant} >
-              Software Engineer and Front-end Developer.
+              Software Engineer.
             </motion.h4>
             <motion.h4 variants={TextVariant} >
               23, he/him
