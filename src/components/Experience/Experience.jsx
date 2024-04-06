@@ -1,4 +1,3 @@
-// Experience.js
 import React from "react";
 import { motion } from "framer-motion";
 import { FaRocket, FaLaptopCode, FaReact, FaPython, FaBriefcase } from "react-icons/fa";
@@ -22,20 +21,32 @@ const Experience = () => {
     return "#" + Math.floor(Math.random() * 16777215).toString(16);
   };
 
+ const listItemVariants = {
+    initial: { scale: 1 },
+    hover: { scale: 1.2 },
+  };
+
   return (
     <motion.div transition={{ ease: "easeInOut" }}>
       <section className="work-history" id="work-history">
         <motion.h2 className="experience-title">Work Experience :</motion.h2>
         {ExperienceData.map((experience) => (
-          <div key={experience.id} className="experience-item">
+          <motion.div 
+            key={experience.id} 
+            className="experience-item"
+            variants={listItemVariants} 
+            whileHover="hover" 
+            initial="initial"
+          >
             {icons[experience.icon]}
             <p>
-                {experience.title}
-             {" "} at {" "}
+              {experience.title} at{" "}
               <span className="company-name" style={{ fontWeight: "bold", color: getRandomColor() }}>
-               {experience.company}  </span> ({experience.date})
+                {experience.company}
+              </span>{" "}
+              ({experience.date})
             </p>
-          </div>
+          </motion.div>
         ))}
       </section>
     </motion.div>
