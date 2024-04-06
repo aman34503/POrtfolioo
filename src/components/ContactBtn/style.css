@@ -1,8 +1,9 @@
 .baby-pink-box {
-  background-color: #ffeced; /* Baby pink color */
+  background-color: #ffeced; 
   padding: 26px;
   border-radius: 5px;
   margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0.4, 0.3, 0.6); 
 }
 
 resume-cta{
@@ -62,7 +63,7 @@ resume-cta{
     max-height: 250px;
   }
   .baby-pink-box {
-    padding: 15px; /* Adjust padding for smaller screens */
-    margin-top: 10px; /* Adjust margin-top for smaller screens */
+    padding: 15px; 
+    margin-top: -7px; 
   }
 }

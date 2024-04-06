@@ -10,6 +10,11 @@
     margin-bottom: 20px;
 }
 
+.company-name{
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: underline;
+}
 
 .experience-item {
   display: flex;
