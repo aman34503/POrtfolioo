@@ -5,6 +5,7 @@ import Blog from "./pages/Blog/Blog";
 import "./Global/ScrollBar.css";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import { Analytics } from "@vercel/analytics/react";
 
 export const App = () => {
   const location = useLocation();
@@ -19,17 +20,19 @@ export const App = () => {
   return (
     <>
       <NormalizeStyle />
-      <AnimatePresence exitBeforeEnter>
-        <Routes location={location} key={location.key}>
-          <Route
-            exact
-            path="/"
-            element={loading ? <Loader /> : <Home />}
-          />
-          <Route exact path="/contact" element={<Contact />} />
-          <Route exact path="/blog" element={<Blog />} />
-        </Routes>
-      </AnimatePresence>
+      <Analytics id="prj_fuojr1zCRvcP1JZDkys6ECLcoLIL">
+        <AnimatePresence exitBeforeEnter>
+          <Routes location={location} key={location.key}>
+            <Route
+              exact
+              path="/"
+              element={loading ? <Loader /> : <Home />}
+            />
+            <Route exact path="/contact" element={<Contact />} />
+            <Route exact path="/blog" element={<Blog />} />
+          </Routes>
+        </AnimatePresence>
+      </Analytics>
     </>
   );
 };
