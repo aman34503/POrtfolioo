@@ -23,7 +23,7 @@ const Experience = () => {
 
  const listItemVariants = {
     initial: { scale: 1 },
-    hover: { scale: 1.2 },
+    hover: { scale: 1.1 },
   };
 
   return (

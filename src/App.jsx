@@ -20,7 +20,7 @@ export const App = () => {
   return (
     <>
       <NormalizeStyle />
-      <Analytics id="prj_fuojr1zCRvcP1JZDkys6ECLcoLIL">
+      {/* <Analytics id="prj_fuojr1zCRvcP1JZDkys6ECLcoLIL"> */}
         <AnimatePresence exitBeforeEnter>
           <Routes location={location} key={location.key}>
             <Route
@@ -32,7 +32,7 @@ export const App = () => {
             <Route exact path="/blog" element={<Blog />} />
           </Routes>
         </AnimatePresence>
-      </Analytics>
+      {/* </Analytics> */}
     </>
   );
 };
