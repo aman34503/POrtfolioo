@@ -30,6 +30,7 @@ const SkillsBox = () => {
       { name: "Linux", emoji: "🐧" },
       { name: "VScode", emoji: "⌨️" },
       { name: "Bash Scripting", emoji: "📝" },
+      { name: "Docker", emoji: "🐳" },
     ],
   };
 
@@ -63,7 +64,7 @@ const SkillsBox = () => {
             </ul>
           </div>
           <div className="skills-colomn-wrap">
-            <motion.h3>As Competitive-Programmer</motion.h3>
+            <motion.h3>As Programmer</motion.h3>
             <ul>
               {Skills.Programming.map((skill, index) => {
                 return (

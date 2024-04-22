@@ -23,8 +23,7 @@ export const App = () => {
         <AnimatePresence exitBeforeEnter>
           <Routes location={location} key={location.key}>
             <Route
-              exact
-              path="/"
+              exact path="/"
               element={loading ? <Loader /> : <Home />}
             />
             <Route exact path="/contact" element={<Contact />} />
