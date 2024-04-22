@@ -9,7 +9,7 @@ import {
   FaBootstrap
 } from "react-icons/fa";
 import { RiJavascriptFill } from "react-icons/ri";
-import { SiReactrouter, SiSocketdotio,SiMatrix,SiFarfetch,SiAuthelia  } from "react-icons/si";
+import { SiReactrouter, SiSocketdotio, SiMatrix, SiFarfetch, SiAuthelia  } from "react-icons/si";
 import { PiFramerLogoFill } from "react-icons/pi";
 import { IoLogoFirebase } from "react-icons/io5";
 import { FaThumbsUp } from "react-icons/fa";
@@ -58,23 +58,6 @@ const WorkCard = () => {
         {WorkData.map((work) => (
           <div key={work.id} className="work-card">
             <h3 className="project-name">{work.name}</h3>
-            <p className="project-status">
-                <>
-                  <FaThumbsUp className="thumbs-up-icon" />
-                  Maintained
-                </>
-          
-            </p>
-            <p>{work.description}</p>
-            <h4 className="tech-stack">Tech Stack:</h4>
-              <div className="tech-list">
-                {work.techStack.map((tech, index) => (
-                  <span key={index} className="tech-list-item">
-                    {getTechIcon(tech)}{(tech)}
-                    {index < work.techStack.length - 1 && <span>&bull;</span>}
-                  </span>
-                ))}
-              </div>
             <div className="project-links">
               {work.demo && (
                 <a
@@ -97,9 +80,22 @@ const WorkCard = () => {
                 GitHub
               </a>
             </div>
-            <div>
-              
+            <button className="project-status">
+              <>
+                <FaThumbsUp className="thumbs-up-icon" />
+                Maintained
+              </>
+            </button>
+            <p className="project-description">{work.description}</p>
+            <div className="tech-list">
+              {work.techStack.map((tech, index) => (
+                <span key={index} className="tech-list-item">
+                  {getTechIcon(tech)}{(tech)}
+                  {index < work.techStack.length - 1 && <span>&bull;</span>}
+                </span>
+              ))}
             </div>
+            
           </div>
         ))}
       </div>

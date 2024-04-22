@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import "./style.css";
 import profileImage from "./amanprofile.jpeg"; // Replace with your image file
 
+const PageHeader = () => {
 const ParentVariant = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -21,7 +22,6 @@ const ImageVariant = {
   hover: { filter: "grayscale(100%)" },
 };
 
-const PageHeader = () => {
   return (
     <div className="container">
       <motion.div
@@ -42,10 +42,10 @@ const PageHeader = () => {
             <motion.h2 variants={TextVariant}>
               👋 Hey, I'm Aman<em>.</em>
             </motion.h2>
-            <motion.h4 variants={TextVariant} >
+            <motion.h4  >
               Software Engineer.
             </motion.h4>
-            <motion.h4 variants={TextVariant} >
+            <motion.h4 >
               23, he/him
             </motion.h4>
           </div>

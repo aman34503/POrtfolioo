@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "What I learned while working in a Start-up",
+    "link": "https://aman04.hashnode.dev/what-i-learned-while-working-in-a-start-up",
+    "time": "3 March 2023",
+    "location": "India"
+  },
+  {
+    "id": 2,
+    "title": "Unlocking Efficiency and Simplicity: The Future of React Development",
+    "link": "https://aman04.hashnode.dev/unlocking-efficiency-and-simplicity-the-future-of-react-development",
+    "time": "28 feb 2024",
+    "location": "India"
+  },
+  {
+    "id": 3,
+    "title": "Navigating npm update woes a guide to resolve compatibility issues",
+    "link": "https://aman04.hashnode.dev/navigating-npm-update-woes-a-guide-to-resolve-compatibility-issues",
+    "time": "13 Jan 2024",
+    "location": "India"
+  },
+  {
+    "id": 4,
+    "title": "Common Errors in Programming",
+    "link": "https://aman04.hashnode.dev/errors",
+    "time": "20 Feb 2022",
+    "location": "India"
+  },
+  {
+    "id": 5,
+    "title": "Array Methods in Javascript",
+    "link": "https://medium.com/@amanshrivastava_21654/array-methods-javascript-4e64dbe41bb3",
+    "time": "28 July 2022",
+    "location": "India"
+  },
+  {
+    "id": 6,
+    "title": "Lets start our first express server",
+    "link": "https://aman04.hashnode.dev/lets-start-our-first-express-server",
+    "time": "14 Feb 2022",
+    "location": "India"
+  }
+]

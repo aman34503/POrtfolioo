@@ -26,9 +26,9 @@ const Nav = () => {
                 Home
               </NavLink>
             </li>
-            {/* <li>
+            <li>
               <NavLink to="/blog">Blog</NavLink>
-            </li> */}
+            </li>
 <li>
               <NavLink to="/contact">Contact</NavLink>
             </li>
