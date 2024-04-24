@@ -5,7 +5,6 @@ import Blog from "./pages/Blog/Blog";
 import "./Global/ScrollBar.css";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { Analytics } from "@vercel/analytics/react";
 
 export const App = () => {
   const location = useLocation();

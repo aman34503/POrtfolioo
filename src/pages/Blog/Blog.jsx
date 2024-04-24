@@ -1,10 +1,9 @@
 // Blog.jsx
 import React from "react";
 import { motion } from "framer-motion";
-import { PageHeader, Nav } from "../../components"; // Assuming Nav component is exported from "../../components"
+import { PageHeader, Nav } from "../../components"; 
 import "./style.css";
 import blogLinks from "./blogLinks.json"; 
-import { color } from "three/examples/jsm/nodes/Nodes.js";
 
 const Blog = () => {
   return (
