@@ -27,3 +27,4 @@ yarn-error.log*
 
 # Extra Code(functionality)
 /src/components/Cursor
+.vercel
