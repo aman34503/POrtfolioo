@@ -3,6 +3,13 @@
   background-color: #ffffff;
   overflow: hidden;
   position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Dark Theme Styles */
+.dark-theme.page {
+  background-color: #0000009a;
+  color: #ffffff;
 }
 
 /*## --------Navbar and Header-------- #*/
@@ -11,18 +18,23 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: color 0.3s ease; /* Smooth transition */
+}
+
+.dark-theme .head-wrap {
+  color: #ffffff;
 }
 
 .head {
   margin-top: 120px;
 }
 
-
 .intro {
   display: flex;
   flex-direction: column;
   position: relative;
 }
+
 .resume-btn-wrap {
   display: flex;
   justify-content: flex-end;
@@ -36,21 +48,30 @@
   gap: 170px;
   width: 100%;
 }
+
 .talk-title {
-  color: #000000; /* Add your desired color value here */
+  color: #000000; /* Default color */
+  transition: color 0.3s ease; /* Smooth transition */
 }
+
+.dark-theme .talk-title {
+  color: #ffffff; /* White in dark theme */
+}
+
 .skills article {
   width: 100%;
   display: flex;
   justify-content: flex-end;
   margin-bottom: 100px;
 }
+
 .about article {
   width: 100%;
   display: flex;
   justify-content: flex-end;
   margin-bottom: 50px;
 }
+
 .contact {
   margin-top: 60px;
   width: 100%;
@@ -59,24 +80,55 @@
   gap: 40px;
   margin-bottom: 30px;
 }
+
 .contact article {
   width: 50%;
 }
+
 footer {
   display: flex;
   justify-content: space-between;
 }
+
 .footer-content {
   color: rgb(0, 0, 0);
   display: flex;
   margin-top: 80px;
   margin-bottom: 30px;
+  transition: color 0.3s ease; /* Smooth transition */
 }
+
+.dark-theme .footer-content {
+  color: #ffffff; /* White in dark theme */
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #ffffff;
+  color: #222222;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  font-size: 14px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.dark-theme .theme-toggle-btn {
+  background-color: #222222;
+  color: #ffffff;
+}
+
+/* Responsive Styles */
 @media screen and (max-width: 955px) {
   .contact article {
     width: 100%;
   }
 }
+
 @media screen and (max-width: 825px) {
   .head-wrap {
     padding: 65px 10px 0 45px;
@@ -85,6 +137,7 @@ footer {
     margin-top: 40px;
   }
 }
+
 @media screen and (max-width: 400px) {
   .head-wrap {
     padding: 65px 10px 0 25px;
@@ -93,11 +146,13 @@ footer {
     top: 100px;
   }
 }
+
 @media screen and (max-width: 550px) {
   .about {
     gap: 80px;
   }
 }
+
 @media screen and (max-width: 675px) {
   .container {
     gap: 70px;
@@ -127,28 +182,3 @@ footer {
     margin-bottom: 0px;
   }
 }
-
-
-/* Add these styles to your existing CSS */
-
-
-
-
-.dark-theme {
-  background-color: #333333;
-  color: #ffffff;
-}
-
-.theme-toggle-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: #ffffff;
-  color: #222222;
-  padding: 10px;
-  cursor: pointer;
-  border: none;
-  font-size: 14px;
-}
-
-

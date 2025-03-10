@@ -1,29 +1,27 @@
-// PageHeader.jsx
-
 import React from "react";
 import { motion } from "framer-motion";
 import "./style.css";
 import profileImage from "./amanprofile.jpeg"; // Replace with your image file
 
-const PageHeader = () => {
-const ParentVariant = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
+const PageHeader = ({ isDarkTheme }) => {
+  const ParentVariant = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
 
-const TextVariant = {
-  initial: { opacity: 0, y: 10 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.2 } },
-};
+  const TextVariant = {
+    initial: { opacity: 0, y: 10 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.2 } },
+  };
 
-const ImageVariant = {
-  initial: { scale: 0.8, opacity: 0 },
-  animate: { scale: 1, opacity: 1, transition: { duration: 0.6, delay: 0.4 } },
-  hover: { filter: "grayscale(100%)" },
-};
+  const ImageVariant = {
+    initial: { scale: 0.8, opacity: 0 },
+    animate: { scale: 1, opacity: 1, transition: { duration: 0.6, delay: 0.4 } },
+    hover: { filter: "grayscale(100%)" },
+  };
 
   return (
-    <div className="container">
+    <div className={`container ${isDarkTheme ? "dark-theme" : ""}`}>
       <motion.div
         className="text-area"
         variants={ParentVariant}
@@ -42,12 +40,8 @@ const ImageVariant = {
             <motion.h2 variants={TextVariant}>
               👋 Hey, I'm Aman<em>.</em>
             </motion.h2>
-            <motion.h4  >
-              Software Engineer.
-            </motion.h4>
-            <motion.h4 >
-              23, he/him
-            </motion.h4>
+            <motion.h4>Software Engineer.</motion.h4>
+            <motion.h4>23, he/him</motion.h4>
           </div>
         </span>
       </motion.div>

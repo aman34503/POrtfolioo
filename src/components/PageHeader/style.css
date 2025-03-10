@@ -75,3 +75,21 @@
     line-height: 4.2rem;
   }
 }
+
+/* Dark Theme Styles */
+.dark-theme.container {
+  background-color: #000000;
+  color: #ffffff; /* White text in dark theme */
+}
+
+.dark-theme .profile-image {
+  border-color: #ffffff; /* White border in dark theme */
+}
+
+.dark-theme .about-me h3 {
+  color: #ffffff; /* White text in dark theme */
+}
+
+.dark-theme .about-me p {
+  color: #e0e0e0; /* Light gray text in dark theme */
+}
