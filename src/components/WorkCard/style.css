@@ -1,121 +1,111 @@
-*{
-  font-family: "Helvetica Neue",
+/* Project Section Styles */
+.container {
+  padding: 20px;
 }
 
 .project-title {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  font-size: 1.8em;
+  font-weight: bold;
+  text-align: center;
+  color: inherit; /* Inherit theme color */
+  position: relative; /* Required for the underline */
+  display: inline-block; /* Ensure the underline only spans the text */
+}
+
+/* Underline Effect */
+.project-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px; /* Adjust the distance of the underline from the text */
+  width: 60px; /* Width of the underline */
+  height: 3px; /* Thickness of the underline */
+  background-color: #0044ff; /* Color of the underline */
+  transform: translateX(-50%); /* Center the underline */
+  transition: width 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover Effect */
+.project-title:hover::after {
+  width: 100px; /* Increase the width of the underline on hover */
+  background-color: #ff6b6b; /* Change the underline color on hover */
+}
+
+.work-cards-container {
+  position: relative;
+  padding-left: 20px;
+}
+
+/* Timeline Line */
+.work-cards-container::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background-color: #0044ff;
+  opacity: 0.3;
 }
 
 .work-card {
-  margin-top: 28px;
+  position: relative;
+  margin-bottom: 30px;
+  padding-left: 30px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Timeline Dot */
+.work-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  background-color: #0044ff;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.work-card:hover {
+  transform: translateX(10px);
+  opacity: 0.9;
 }
 
 .project-name {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: inherit; /* Inherit theme color */
   margin-bottom: 10px;
-  color: #555;
 }
 
 .project-links {
+  display: flex;
+  gap: 10px;
   margin-bottom: 10px;
 }
 
 .link-btn {
   display: inline-flex;
   align-items: center;
-  color: #555; 
+  color: #555;
   text-decoration: none;
-  margin-right: 10px;
-  transition: color 0.3s, border-color 0.3s;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: rgba(0, 68, 255, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .link-btn:hover {
-  color: rgb(16, 89, 157);
-  border-color: rgb(15, 47, 120); 
+  background-color: rgba(0, 68, 255, 0.2);
+  color: #0044ff;
 }
 
 .project-status {
-  display: inline-block;
-  padding: 5px 10px;
-  border-radius: 10px;
-  border-color: rgb(177, 177, 177); 
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.project-status:hover {
-  background-color: black;
-  color: white;
-}
-
-.project-description{
-  color: #555;
-  font-size: 17px;
-}
-
-.project-status {
-  margin-bottom: 10px;
-}
-
-.thumbs-up-icon {
-  margin-right: 5px;
-}
-
-.tech-list {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 10px;
-  font-size: 14px;
-}
-
-.tech-list-item {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  margin-right: 5px;
-}
-
-.tech-list-item span {
-  margin: 0 3px;
-}
-
-.tech-icon {
-  margin-right: 5px;
-  font-size: 20px;
-}
-
-/* Define specific styles for each icon */
-.react { color: #61DAFB; }
-.html { color: #E34F26; }
-.javascript { color: #F7DF1E; }
-.css { color: #1572B6; }
-.bootstrap { color: #7952B3; }
-.reactRouter { color: #CA4245; }
-.framer-motion { color: #64ABF8; }
-.socket { color: #010101; }
-.material-ui { color: #0081CB; }
-.firestore-database { color: #FFA611; }
-.fetch-api { color: #42275A; }
-.oauth { color: #136AD4; }
-
-/* Styles for links */
-.link-btn svg {
-  margin-right: 5px;
-}
-
-.work-card {
-  position: relative; /* Required for positioning the line */
-  padding-left: 10px; /* Add padding to the left side */
-}
-
-.work-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 3px; /* Adjust the width of the line as needed */
-  background-color: rgb(167, 167, 167); /* Initial color of the line */
-  transition: background-color 0.3s; /* Smooth transition for color change */
-}
-
-.work-card:hover::before {
-  background-color: rgb(255, 106, 14); /* Change color to yellow on hover */
+  padding: 5px 10px;
+  border-radius: 5px;
 }

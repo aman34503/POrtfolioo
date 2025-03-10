@@ -1,64 +1,161 @@
-/* styles.css */
-
-/* Common styles for both desktop and mobile */
+/* Experience Section Styles */
 .work-history {
-  margin-top: 10px;
+  margin-top: 5px;
+  padding: 20px;
 }
 
 .experience-title {
-  margin-top: 12px;
-    margin-bottom: 20px;
+  margin-bottom: 30px;
+  font-size: 1.8em;
+  font-weight: bold;
+  text-align: center;
+  color: inherit; /* Inherit theme color */
+  position: relative; /* Required for the underline */
+  display: inline-block; /* Ensure the underline only spans the text */
 }
 
-.company-name{
-  font-size: 20px;
-  font-weight: bold;
-  text-decoration: underline;
+/* Underline Effect */
+.experience-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px; /* Adjust the distance of the underline from the text */
+  width: 100px; /* Width of the underline */
+  height: 2px; /* Thickness of the underline */
+  background-color: #007bffb3; /* Color of the underline */
+  transform: translateX(-50%); /* Center the underline */
+  transition: width 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover Effect */
+.experience-title:hover::after {
+  width: 150px; 
+  background-color: #5e45ff; 
+}
+
+/* Dark Theme Styles */
+.dark-theme .experience-title::after {
+  background-color: #ffffff; 
+}
+
+.dark-theme .experience-title:hover::after {
+  background-color: #5e45ff; 
+}
+
+.experience-list {
+  position: relative;
+  padding-left: 20px;
+}
+
+/* Timeline Line */
+.experience-list::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background-color: #0044ff;
+  opacity: 0.3;
 }
 
 .experience-item {
-  display: flex;
-  align-items: center;
+  position: relative;
   margin-bottom: 30px;
+  padding-left: 30px;
+  display: flex; /* Align emoji and title in a single line */
+  align-items: center; /* Vertically center align */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Timeline Dot */
+.experience-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background-color: #0000002c;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.experience-item:hover {
+  transform: translateX(10px);
+  opacity: 0.9;
 }
 
 .emoji {
-  font-size: 2em;
+  font-size: 1.5em;
   margin-right: 10px;
+  color: #232225bd;
 }
 
-.emoji.file,
-.emoji.javascript,
-.emoji.laptop,
-.emoji.react,
-.emoji.rocket,
-.emoji.python,
-.emoji.briefcase {
-  color: rgb(0, 68, 255);
-}
-
-p {
-  font-size: 1.2em;
+.title {
+  font-size: 0.9em; /* Smaller font size for titles */
   margin: 0;
+  color: inherit; /* Inherit theme color */
 }
 
-/* Mobile styles */
+.company-name {
+  font-size: 0.9em; /* Smaller font size for company names */
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit; /* Inherit theme color */
+  transition: color 0.3s ease;
+}
+
+.experience-item:hover .company-name {
+  color: #0044ff; /* Highlight company name on hover */
+}
+
+.date {
+  font-size: 0.8em; /* Smaller font size for dates */
+  color: #777;
+  margin-top: 5px;
+  display: block;
+}
+
+/* Dark Theme Styles */
+.dark-theme .experience-title {
+  color: #ffffff;
+}
+
+.dark-theme .company-name {
+  color: #ffffff;
+}
+
+.dark-theme .experience-item::before {
+  background-color: #ffffff;
+}
+
+.dark-theme .emoji {
+  color: #ffffff;
+}
+
+.dark-theme .date {
+  color: #bbb;
+}
+
+/* Mobile Styles */
 @media screen and (max-width: 768px) {
+  .work-history {
+    margin-top: 20px;
+    padding: 10px;
+  }
+
+  .experience-list {
+    padding-left: 10px;
+  }
+
   .experience-item {
-    flex-direction: column;
-    align-items: flex-start;
+    padding-left: 20px;
   }
 
-  .work-history{
-    margin-top: 186px;
-  }
-
-  .emoji {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-
-  p {
-    font-size: 1.1em;
+  .experience-item::before {
+    width: 10px;
+    height: 10px;
   }
 }

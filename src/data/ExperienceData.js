@@ -1,12 +1,27 @@
-// ExperienceData.js
-
 export const ExperienceData = [
   {
     id: 1,
-    title: "Full Stack Devloper",
+    title: "Salesforce Developer",
+    company: "TCS",
+    date: "April 2024 - Present",
+    duration: "Present",
+    skills: [
+      "Salesforce Apex",
+      "Lightning Web Components (LWC)",
+      "Salesforce Administration",
+      "Copado",
+      "SOQL & SOSL",
+      "REST & SOAP APIs",
+      "Data Cloud",
+    ],
+    icon: "cloud",
+  },
+  {
+    id: 2,
+    title: " Software Engineer Trainee → Full Stack Developer",
     company: "Robro Systems",
-    date: "Jan 2024 - Present",
-    duration: "4 mos",
+    date: "May 2023 - April 2024",
+    duration: "1 yr",
     skills: [
       "Artificial Intelligence (AI)",
       "Machine Learning",
@@ -15,21 +30,6 @@ export const ExperienceData = [
       "Front-end Development",
     ],
     icon: "briefcase",
-  },
-  {
-    id: 2,
-    title: "Software Engineer trainee",
-    company: "Robro Systems",
-    date: "May 2023 - Jan 2024",
-    duration: "9 mos",
-    skills: [
-      "Artificial Intelligence (AI)",
-      "Machine Learning",
-      "Back-End Web Development",
-      "Customer Service",
-      "Front-end Development",
-    ],
-    icon: "rocket",
   },
   {
     id: 3,
