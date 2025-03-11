@@ -116,11 +116,19 @@ footer {
   border-radius: 50%;
   transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
-
 .dark-theme .theme-toggle-btn {
-  background-color: #222222;
+  background-color: #000000;
   color: #ffffff;
 }
+.dark-theme .footer-content {
+  color: #ffffff; /* White in dark theme */
+}
+.dark-theme footer {
+  border-top: 1px solid rgb(255, 255, 255); /* Light border in dark theme */
+}
+
+
+
 
 /* Responsive Styles */
 @media screen and (max-width: 955px) {

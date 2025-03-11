@@ -60,7 +60,7 @@ const Home = () => {
             <SkillsBox isDarkTheme={isDarkTheme} />
           </section>
 
-          <section className="contact" id="connect">
+          <section className="contact" id="connect" isDarkTheme={isDarkTheme}>
             <SectionTitle
               title="Let's Have a Talk !"
               fontSize="clamp(36px, 20px + 7vw, 80px)"
