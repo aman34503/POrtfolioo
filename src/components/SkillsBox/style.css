@@ -1,41 +1,105 @@
+/* Skills Section Styles */
+
+.skills-title {
+  /* margin-bottom: 20px; */
+  font-size: 2em;
+  /* font-weight: bold; */
+  text-align: center;
+  color: inherit; /* Inherit theme color */
+  position: relative; /* Required for the underline */
+  display: inline-block; /* Ensure the underline only spans the text */
+}
+
+/* Hover Effect */
+.skills-title:hover::after {
+  width: 100px; /* Increase the width of the underline on hover */
+  background-color: #ff6b6b; /* Change the underline color on hover */
+}
+
 .skills-wrap {
   display: flex;
   gap: 30px;
-  margin-top: 10px;
-}
-.title{
-margin-bottom: 20px;
-font-size: 42px;
-margin-top: 30px;
+  margin-top: 20px;
 }
 
 .skills-colomn-wrap {
   width: 100%;
   height: 100%;
 }
+
 .skills-colomn-wrap h3 {
-  color: rgb(0, 0, 0);
+  color: inherit; /* Inherit theme color */
   font-family: "panchang", sans-serif;
   margin-bottom: 20px;
+  font-size: 1.2em;
+  /* font-weight: bold; */
 }
+
 .skills-colomn-wrap ul {
   display: flex;
   flex-direction: column;
-  color: rgb(0, 0, 0);
-  text-decoration: none;
+  gap: 10px;
   list-style: none;
-  gap: 5px;
+  padding: 0;
+  margin: 0;
 }
+
 .skills-colomn-wrap ul li {
-  text-decoration: none;
-  letter-spacing: -1px;
-  font-size: clamp(8px, 3px + 3vw, 20px);
-    cursor: pointer; 
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1em;
+  color: inherit; /* Inherit theme color */
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
+
+.skills-colomn-wrap ul li:hover {
+  color: #0044ff; /* Change text color on hover */
+  transform: translateX(5px); /* Slight move to the right on hover */
+}
+
+/* Dark Theme Styles */
+.dark-theme .skills-title {
+  color: #ffffff;
+}
+
+.dark-theme .skills-title::after {
+  background-color: #ffffff;
+}
+
+.dark-theme .skills-title:hover::after {
+  background-color: #ff6b6b;
+}
+
+.dark-theme .skills-colomn-wrap h3 {
+  color: #ffffff;
+}
+
+.dark-theme .skills-colomn-wrap ul li {
+  color: #e0e0e0;
+}
+
+.dark-theme .skills-colomn-wrap ul li:hover {
+  color: #0044ff;
+}
+
+/* Mobile Styles */
 @media screen and (max-width: 670px) {
   .skills-wrap {
     flex-wrap: wrap;
-    gap: 0;
+    gap: 20px;
   }
 
+  .skills-colomn-wrap {
+    width: 100%;
+  }
+
+  .skills-colomn-wrap h3 {
+    font-size: 1.2em;
+  }
+
+  .skills-colomn-wrap ul li {
+    font-size: 0.9em;
+  }
 }

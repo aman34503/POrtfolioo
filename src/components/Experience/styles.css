@@ -1,20 +1,16 @@
 /* Experience Section Styles */
-.work-history {
-  margin-top: 5px;
-  padding: 20px;
-}
+
 
 .experience-title {
+  margin-top: 30px;
   margin-bottom: 30px;
   font-size: 1.8em;
-  font-weight: bold;
+  /* font-weight: bold; */
   text-align: center;
   color: inherit; /* Inherit theme color */
   position: relative; /* Required for the underline */
   display: inline-block; /* Ensure the underline only spans the text */
 }
-
-/* Underline Effect */
 .experience-title::after {
   content: "";
   position: absolute;
@@ -70,20 +66,19 @@
 
 /* Timeline Dot */
 .experience-item::before {
-  content: "";
+ content: "";
   position: absolute;
   left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 8px;
   width: 12px;
   height: 12px;
-  background-color: #0000002c;
+  background-color: #636364;
   border-radius: 50%;
   z-index: 1;
 }
 
 .experience-item:hover {
-  transform: translateX(10px);
+   transform: translateX(10px);
   opacity: 0.9;
 }
 
@@ -101,7 +96,7 @@
 
 .company-name {
   font-size: 0.9em; /* Smaller font size for company names */
-  font-weight: bold;
+  /* font-weight: bold; */
   text-decoration: none;
   color: inherit; /* Inherit theme color */
   transition: color 0.3s ease;

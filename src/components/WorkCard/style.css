@@ -1,7 +1,7 @@
 /* Project Section Styles */
-.container {
+/* .container {
   padding: 20px;
-}
+} */
 
 .project-title {
   margin-bottom: 30px;
@@ -19,9 +19,9 @@
   position: absolute;
   left: 50%;
   bottom: -10px; /* Adjust the distance of the underline from the text */
-  width: 60px; /* Width of the underline */
-  height: 3px; /* Thickness of the underline */
-  background-color: #0044ff; /* Color of the underline */
+  width: 50px; /* Width of the underline */
+  height: 2px; /* Thickness of the underline */
+  background-color: #007bffb3; /* Color of the underline */
   transform: translateX(-50%); /* Center the underline */
   transition: width 0.3s ease, background-color 0.3s ease; /* Smooth transition */
 }
@@ -29,7 +29,7 @@
 /* Hover Effect */
 .project-title:hover::after {
   width: 100px; /* Increase the width of the underline on hover */
-  background-color: #ff6b6b; /* Change the underline color on hover */
+  background-color: #1d24e7; /* Change the underline color on hover */
 }
 
 .work-cards-container {
@@ -64,7 +64,7 @@
   top: 8px;
   width: 12px;
   height: 12px;
-  background-color: #0044ff;
+  background-color: #636364;
   border-radius: 50%;
   z-index: 1;
 }
@@ -75,37 +75,137 @@
 }
 
 .project-name {
-  font-size: 1.2em;
-  font-weight: bold;
-  color: inherit; /* Inherit theme color */
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
+/* Updated Project Links Styles */
 .project-links {
   display: flex;
-  gap: 10px;
+  gap: 8px; /* Reduced gap between links */
   margin-bottom: 10px;
 }
 
 .link-btn {
   display: inline-flex;
   align-items: center;
-  color: #555;
+  color: #555; /* Default text color */
   text-decoration: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  background-color: rgba(0, 68, 255, 0.1);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 4px 8px; /* Smaller padding */
+  border-radius: 4px; /* Smaller border radius */
+  background-color: transparent; /* No background by default */
+  font-size: 0.8em; /* Smaller font size */
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .link-btn:hover {
-  background-color: rgba(0, 68, 255, 0.2);
-  color: #0044ff;
+  background-color: rgba(0, 68, 255, 0.1); /* Light background on hover */
 }
 
-.project-status {
-  display: inline-flex;
+.link-btn svg {
+  margin-right: 4px; /* Smaller gap between icon and text */
+  font-size: 0.9em; /* Smaller icon size */
+}
+
+.project-description-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+}
+
+.work-card:hover .project-description-container {
+  max-height: 100px; /* Adjust based on your description length */
+  opacity: 1;
+}
+
+.project-description {
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1px;
+}
+
+.tech-list-item {
+  display: flex;
   align-items: center;
-  padding: 5px 10px;
-  border-radius: 5px;
+  gap: 5px;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.tech-icon {
+  font-size: 1.2em;
+}
+
+/* Define specific styles for each icon */
+.react { color: #61DAFB; }
+.html { color: #E34F26; }
+.javascript { color: #F7DF1E; }
+.css { color: #1572B6; }
+.bootstrap { color: #7952B3; }
+.reactRouter { color: #CA4245; }
+.framer-motion { color: #64ABF8; }
+.socket { color: #010101; }
+.material-ui { color: #0081CB; }
+.firestore-database { color: #FFA611; }
+.fetch-api { color: #42275A; }
+.oauth { color: #136AD4; }
+
+/* Dark Theme Styles */
+.dark-theme .project-title {
+  color: #ffffff;
+}
+
+.dark-theme .project-title::after {
+  background-color: #ffffff;
+}
+
+.dark-theme .project-title:hover::after {
+  background-color: #272aea;
+}
+
+.dark-theme .project-name {
+  color: #ffffff;
+}
+
+.dark-theme .link-btn {
+  color: #e0e0e0; /* Light text in dark mode */
+}
+
+.dark-theme .link-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Light background on hover in dark mode */
+}
+
+.dark-theme .project-description {
+  color: #e0e0e0;
+}
+
+.dark-theme .tech-list-item {
+  color: #e0e0e0;
+}
+
+.dark-theme .work-card::before {
+  background-color: #ffffff;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  .work-cards-container {
+    padding-left: 10px;
+  }
+
+  .work-card {
+    padding-left: 20px;
+  }
+
+  .work-card::before {
+    width: 10px;
+    height: 10px;
+  }
 }

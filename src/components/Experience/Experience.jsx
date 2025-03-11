@@ -5,6 +5,7 @@ import { RiJavascriptFill } from "react-icons/ri";
 import { MdWebhook } from "react-icons/md";
 import "./styles.css";
 import { ExperienceData } from "../../data/ExperienceData";
+import { hover } from "@testing-library/user-event/dist/hover";
 
 const icons = {
   rocket: <FaRocket className="emoji" />,
