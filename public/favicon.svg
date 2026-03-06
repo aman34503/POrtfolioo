@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="cape" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="shield" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <!-- Shield/crest base -->
+  <path d="M32 4 L56 14 L56 32 Q56 48 32 60 Q8 48 8 32 L8 14 Z" fill="url(#shield)" stroke="#1e3a8a" stroke-width="1"/>
+  <!-- Letter A -->
+  <path d="M32 18 L44 48 L38 48 L36 42 L28 42 L26 48 L20 48 Z M30 36 L34 36 L32 28 Z" fill="#fff"/>
+  <!-- Small star/badge -->
+  <circle cx="32" cy="52" r="3" fill="#fbbf24"/>
+</svg>
