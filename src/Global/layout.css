@@ -1,0 +1,28 @@
+/* Shared layout - minimal, mobile-first, light by default */
+.page-wrapper {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  color: #1a1a1a;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.page-wrapper.dark-theme {
+  background-color: #0d0d0d;
+  color: #e8e8e8;
+}
+
+.app-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px;
+  padding-top: 88px;
+  padding-bottom: 36px;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 0 16px;
+    padding-top: 88px;
+    padding-bottom: 32px;
+  }
+}
