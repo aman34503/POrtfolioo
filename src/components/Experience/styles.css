@@ -1,156 +1,103 @@
-/* Experience Section Styles */
-
+.work-history {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 24px 40px;
+}
 
 .experience-title {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  font-size: 1.8em;
-  /* font-weight: bold; */
-  text-align: center;
-  color: inherit; /* Inherit theme color */
-  position: relative; /* Required for the underline */
-  display: inline-block; /* Ensure the underline only spans the text */
-}
-.experience-title::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -10px; /* Adjust the distance of the underline from the text */
-  width: 100px; /* Width of the underline */
-  height: 2px; /* Thickness of the underline */
-  background-color: #007bffb3; /* Color of the underline */
-  transform: translateX(-50%); /* Center the underline */
-  transition: width 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+  margin: 0 0 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: inherit;
 }
 
-/* Hover Effect */
-.experience-title:hover::after {
-  width: 150px; 
-  background-color: #5e45ff; 
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
-/* Dark Theme Styles */
-.dark-theme .experience-title::after {
-  background-color: #ffffff; 
+.exp-row {
+  display: flex;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  align-items: flex-start;
 }
 
-.dark-theme .experience-title:hover::after {
-  background-color: #5e45ff; 
+.exp-row:last-child {
+  border-bottom: none;
 }
 
-.experience-list {
-  position: relative;
-  padding-left: 20px;
+.dark-theme .exp-row {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 
-/* Timeline Line */
-.experience-list::before {
-  content: "";
-  position: absolute;
-  left: 10px;
-  top: 0;
-  height: 100%;
-  width: 2px;
-  background-color: #0044ff;
-  opacity: 0.3;
+.exp-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0044ff;
+  font-size: 0.9rem;
 }
 
-.experience-item {
-  position: relative;
-  margin-bottom: 30px;
-  padding-left: 30px;
-  display: flex; /* Align emoji and title in a single line */
-  align-items: center; /* Vertically center align */
-  transition: transform 0.3s ease, opacity 0.3s ease;
+.dark-theme .exp-icon {
+  color: #7c9fff;
 }
 
-/* Timeline Dot */
-.experience-item::before {
- content: "";
-  position: absolute;
-  left: 0;
-  top: 8px;
-  width: 12px;
-  height: 12px;
-  background-color: #636364;
-  border-radius: 50%;
-  z-index: 1;
+.exp-body {
+  flex: 1;
+  min-width: 0;
 }
 
-.experience-item:hover {
-   transform: translateX(10px);
-  opacity: 0.9;
+.exp-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin: 0 0 2px;
+  color: inherit;
+  line-height: 1.35;
 }
 
-.emoji {
-  font-size: 1.5em;
-  margin-right: 10px;
-  color: #232225bd;
+.exp-company {
+  font-weight: 500;
+  color: #0044ff;
 }
 
-.title {
-  font-size: 0.9em; /* Smaller font size for titles */
+.dark-theme .exp-company {
+  color: #7c9fff;
+}
+
+.exp-date {
+  font-size: 0.72rem;
+  color: #666;
+  margin: 0 0 4px;
+}
+
+.dark-theme .exp-date {
+  color: #999;
+}
+
+.exp-skills {
+  font-size: 0.7rem;
+  color: #555;
   margin: 0;
-  color: inherit; /* Inherit theme color */
+  line-height: 1.4;
 }
 
-.company-name {
-  font-size: 0.9em; /* Smaller font size for company names */
-  /* font-weight: bold; */
-  text-decoration: none;
-  color: inherit; /* Inherit theme color */
-  transition: color 0.3s ease;
+.dark-theme .exp-skills {
+  color: #aaa;
 }
 
-.experience-item:hover .company-name {
-  color: #0044ff; /* Highlight company name on hover */
-}
-
-.date {
-  font-size: 0.8em; /* Smaller font size for dates */
-  color: #777;
-  margin-top: 5px;
-  display: block;
-}
-
-/* Dark Theme Styles */
-.dark-theme .experience-title {
-  color: #ffffff;
-}
-
-.dark-theme .company-name {
-  color: #ffffff;
-}
-
-.dark-theme .experience-item::before {
-  background-color: #ffffff;
-}
-
-.dark-theme .emoji {
-  color: #ffffff;
-}
-
-.dark-theme .date {
-  color: #bbb;
-}
-
-/* Mobile Styles */
-@media screen and (max-width: 768px) {
-  .work-history {
-    margin-top: 20px;
-    padding: 10px;
+@media (max-width: 768px) {
+  .exp-row {
+    padding: 12px 0;
+    gap: 12px;
   }
 
-  .experience-list {
-    padding-left: 10px;
-  }
-
-  .experience-item {
-    padding-left: 20px;
-  }
-
-  .experience-item::before {
-    width: 10px;
-    height: 10px;
+  .exp-title {
+    font-size: 0.8rem;
   }
 }

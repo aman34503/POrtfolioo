@@ -1,39 +1,68 @@
-// Blog.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { PageHeader, Nav } from "../../components"; 
+import { Nav, MinimalHeader } from "../../components";
+import { useTheme } from "../../context/ThemeContext";
+import blogLinksFallback from "./blogLinks.json";
+import { fetchHashnodePosts } from "../../utils/blogApi";
 import "./style.css";
-import blogLinks from "./blogLinks.json"; 
 
 const Blog = () => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
-  
-    const toggleTheme = () => {
-      setIsDarkTheme(!isDarkTheme);
-    };
+  const { isDarkTheme, toggleTheme } = useTheme();
+  const [blogLinks, setBlogLinks] = useState(blogLinksFallback);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    setError(null);
+    fetchHashnodePosts()
+      .then((posts) => {
+        if (!cancelled && posts.length > 0) setBlogLinks(posts);
+      })
+      .catch(() => {
+        if (!cancelled) setError("Could not load from API");
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => { cancelled = true; };
+  }, []);
+
   return (
     <motion.div
-      className={`page-blog ${isDarkTheme ? "dark-theme" : ""}`}
-      exit={{ x: "100vw" }}
-      transition={{ ease: "easeInOut" }}
+      className={`page-wrapper page-blog ${isDarkTheme ? "dark-theme" : ""}`}
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.25 }}
     >
       <Nav isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
-      <div className="blog-container">
-      <div style={{marginTop: '92px'}}>
-        <PageHeader isDarkTheme={isDarkTheme} />
-      </div>
-
-        <ul className="blog-links">
-        <motion.h3 style={{ marginBottom: '10px', color:'#222222'}} isDarkTheme={isDarkTheme}>
-  blogs.
-</motion.h3>
-          {blogLinks.map(blog => (
-            <li key={blog.id} isDarkTheme={isDarkTheme}>
-              <a href={blog.link}>{blog.title} isDarkTheme={isDarkTheme}</a>
-              <span className="blog-meta">{blog.time} | {blog.location} isDarkTheme={isDarkTheme}</span>
-            </li>
-          ))}
-        </ul>
+      <div className="app-container blog-container">
+        <MinimalHeader title="Blogs" isDarkTheme={isDarkTheme} />
+        {error && <p className="blog-error">{error}</p>}
+        {loading ? (
+          <p className="blog-loading">Loading…</p>
+        ) : (
+          <ul className="blog-list">
+            {blogLinks.map((blog, i) => (
+              <motion.li
+                key={blog.id || i}
+                className="blog-row"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.03 * i }}
+              >
+                <a href={blog.link} target="_blank" rel="noopener noreferrer" className="blog-title">
+                  {blog.title}
+                </a>
+                <span className="blog-meta">
+                  BLOG / {blog.time}
+                </span>
+              </motion.li>
+            ))}
+          </ul>
+        )}
       </div>
     </motion.div>
   );

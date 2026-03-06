@@ -48,8 +48,8 @@ const WorkCard = ({ isDarkTheme }) => {
   };
 
   return (
-    <div className={`container ${isDarkTheme ? "dark-theme" : ""}`}>
-      <motion.h2 className="project-title">Projects</motion.h2>
+    <div className={`container work-cards-section ${isDarkTheme ? "dark-theme" : ""}`}>
+      <h2 className="project-title">Projects</h2>
       <div className="work-cards-container">
         {WorkData.map((work) => (
           <div key={work.id} className="work-card">
@@ -76,9 +76,7 @@ const WorkCard = ({ isDarkTheme }) => {
                 GitHub
               </a>
             </div>
-            <div className="project-description-container">
-              <p className="project-description">{work.description}</p>
-            </div>
+            <p className="project-description">{work.description}</p>
             <div className="tech-list">
               {work.techStack.map((tech, index) => (
                 <span key={index} className="tech-list-item">

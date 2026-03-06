@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.css";
 import { motion } from "framer-motion";
 import {
@@ -12,20 +12,18 @@ import {
   ContactEmail,
   FooterNav,
   SkillsBox,
+  Certifications,
 } from "../../components";
 import Experience from "../../components/Experience/Experience";
 import WorkCard from "../../components/WorkCard/WorkCard";
+import { useTheme } from "../../context/ThemeContext";
 
 const Home = () => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
-
-  const toggleTheme = () => {
-    setIsDarkTheme(!isDarkTheme);
-  };
+  const { isDarkTheme, toggleTheme } = useTheme();
 
   return (
     <motion.div
-      className={`page ${isDarkTheme ? "dark-theme" : ""}`}
+      className={`page page-home ${isDarkTheme ? "dark-theme" : ""}`}
       exit={{ x: "-100vw" }}
       transition={{ ease: "easeInOut" }}
     >
@@ -60,10 +58,14 @@ const Home = () => {
             <SkillsBox isDarkTheme={isDarkTheme} />
           </section>
 
+          <section className="certifications" id="certifications">
+            <Certifications isDarkTheme={isDarkTheme} />
+          </section>
+
           <section className="contact" id="connect" isDarkTheme={isDarkTheme}>
             <SectionTitle
               title="Let's Have a Talk !"
-              fontSize="clamp(36px, 20px + 7vw, 80px)"
+              fontSize="clamp(22px, 5vw, 36px)"
               className="talk-title"
             />
             <ContactEmail isDarkTheme={isDarkTheme} />

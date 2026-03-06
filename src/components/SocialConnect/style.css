@@ -20,9 +20,14 @@
   display: inline-block;
   font-size: clamp(18px, 10px + 2.5vw, 30px);
   text-decoration: none;
-  color: #000000;
-  font-family: "panchang", sans-serif;
+  color: #1a1a1a;
+  font-family: inherit;
   font-weight: 800;
+}
+
+.page-home.dark-theme .socials-name,
+.dark-theme .socials-name {
+  color: #f0f0f0;
 }
 
 .socials-name:after {

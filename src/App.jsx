@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import NormalizeStyle from "./Global/normalizeStyle";
+import { ThemeProvider } from "./context/ThemeContext";
 import { Contact, Home, Loader } from "./pages";
 import Blog from "./pages/Blog/Blog";
+import Discussion from "./pages/Discussion/discussion";
 import "./Global/ScrollBar.css";
+import "./Global/layout.css";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
@@ -11,24 +14,21 @@ export const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2500);
+    const timer = setTimeout(() => setLoading(false), 2500);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <>
+    <ThemeProvider>
       <NormalizeStyle />
-        <AnimatePresence exitBeforeEnter>
-          <Routes location={location} key={location.key}>
-            <Route
-              exact path="/"
-              element={loading ? <Loader /> : <Home />}
-            />
-            <Route exact path="/contact" element={<Contact />} />
-            <Route exact path="/blog" element={<Blog />} />
-          </Routes>
-        </AnimatePresence>
-    </>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={loading ? <Loader /> : <Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/discussion" element={<Discussion />} />
+        </Routes>
+      </AnimatePresence>
+    </ThemeProvider>
   );
 };

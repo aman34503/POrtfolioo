@@ -20,7 +20,7 @@ const Nav = ({ isDarkTheme, toggleTheme }) => {
       <div className="nav-container">
         <ul className="nav-links">
           <li>
-            <NavLink exact to="/">Home</NavLink>
+            <NavLink to="/" end>Home</NavLink>
           </li>
           <li>
             <NavLink to="/blog">Blog</NavLink>

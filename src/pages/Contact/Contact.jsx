@@ -1,169 +1,72 @@
 import React, { useState } from "react";
-import "./style.css";
-import { Icon } from "@iconify/react";
-import { NavLink } from "react-router-dom";
+import { Nav, MinimalHeader } from "../../components";
+import { useTheme } from "../../context/ThemeContext";
 import { motion } from "framer-motion";
-// import { db } from "../../Firebase";
-// import emailjs from "emailjs-com";
-
-const contactContainer = {
-  initial: {
-    x: "100vw",
-  },
-  animate: {
-    x: 0,
-    transition: {
-      duration: 1.2,
-      type: "spring",
-      damping: 9,
-      ease: "easeIn",
-    },
-  },
-};
-
-const contactPage = {
-  initial: {
-    opacity: 0,
-  },
-  animate: {
-    opacity: 1,
-    transition: { type: "tween", duration: 2 },
-  },
-};
+import "./style.css";
 
 const Contact = () => {
+  const { isDarkTheme, toggleTheme } = useTheme();
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
-  // const [loader, setLoader] = useState(false);
-  // const [error, setError] = useState("");
 
-  const style = {
-    color: "White",
-    marginBottom: "30px",
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if (userName && email && regex.test(email)) {
+      const mailto = `mailto:?subject=Contact from ${encodeURIComponent(userName)}&body=${encodeURIComponent(
+        `From: ${userName} (${email})\n\n${msg}`
+      )}`;
+      window.location.href = mailto;
+      setUserName("");
+      setEmail("");
+      setMsg("");
+    }
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-  //   if (userName !== "" && email !== "" && regex.test(email) !== false) {
-  //     setLoader(true);
-
-  //     db.collection("connection")
-  //       .add({
-  //         name: userName,
-  //         email: email,
-  //         message: msg,
-  //       })
-  //       .then(() => {
-  //         setLoader(false);
-  //         alert(
-  //           "Thanks For Your Showing interest in my profile😊. It means a lot!💖"
-  //         );
-  //       })
-  //       .catch((error) => {
-  //         alert(error.message);
-  //         setLoader(false);
-  //       });
-
-  //     //emailjs here...
-  //     emailjs
-  //       .sendForm(
-  //         "service_01g1iyg",
-  //         "template_09rrnzv",
-  //         e.target,
-  //         "ianq_Ulidp_vjgKT4"
-  //       )
-  //       .then((res) => {
-  //         console.log(res);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-
-  //     setUserName("");
-  //     setEmail("");
-  //     setMsg("");
-  //     setError("Check your inbox...");
-  //     setTimeout(() => {
-  //       setError("");
-  //     }, 4000);
-  //     setError("Check your inbox...");
-  //   } else if (userName === "" || email === "") {
-  //     console.log("Seriously, You don't know anythig ? 😂😂");
-  //     setError("Above fields are blank. 😶");
-  //   } else if (regex.test(email) === false) {
-  //     setError("Please enter correct Email!");
-  //   }
-  // };
-
   return (
-    <>
-      <motion.div
-        className="contact-page"
-        variants={contactPage}
-        initial="initial"
-        animate="animate"
-      >
-        <div className="big-container">
-          <NavLink to="/">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1, duration: 0.5 }}
-            >
-              <Icon icon="akar-icons:cross" style={style} />
-            </motion.div>
-          </NavLink>
-          <motion.div className="connect-container" variants={contactContainer}>
-            <form
-              className="connect-form"
-              //   onSubmit={handleSubmit}
-              // onSubmit={handleSubmit}
-            >
-              <h1>Let's Get in Contact 👋</h1>
-              <input
-                type="text"
-                className="input"
-                placeholder="Name"
-                name="name"
-                value={userName}
-                onChange={(e) => setUserName(e.target.value)}
-              />
+    <motion.div
+      className={`page-wrapper page-contact ${isDarkTheme ? "dark-theme" : ""}`}
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.25 }}
+    >
+      <Nav isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
+      <div className="app-container contact-container">
+        <MinimalHeader title="Contact" isDarkTheme={isDarkTheme} />
 
-              <input
-                type="text"
-                className="input"
-                placeholder="Email"
-                name="user_email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
+        <p className="contact-sub">Get in touch or drop a message.</p>
 
-              <textarea
-                type="text"
-                className="textarea"
-                placeholder="Message"
-                name="message"
-                value={msg}
-                onChange={(e) => setMsg(e.target.value)}
-              ></textarea>
-
-              <motion.button
-                className="connect-btn"
-                type="submit"
-                // style={{ background: loader ? "#ccc" : "#000" }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                Submit
-              </motion.button>
-              {/* <p className="error">{error}</p> */}
-            </form>
-          </motion.div>
-        </div>
-      </motion.div>
-    </>
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <div className="contact-row">
+            <input
+              type="text"
+              className="contact-input"
+              placeholder="Name"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+            />
+            <input
+              type="email"
+              className="contact-input"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <textarea
+            className="contact-input contact-textarea"
+            placeholder="Message"
+            value={msg}
+            onChange={(e) => setMsg(e.target.value)}
+            rows={4}
+          />
+          <button type="submit" className="contact-btn">Send</button>
+        </form>
+      </div>
+    </motion.div>
   );
 };
+
 export default Contact;

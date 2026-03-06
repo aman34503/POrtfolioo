@@ -1,51 +1,74 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { FaRocket, FaLaptopCode, FaReact, FaPython, FaBriefcase, FaCloud } from "react-icons/fa";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import {
+  FaLaptopCode,
+  FaReact,
+  FaPython,
+  FaBriefcase,
+  FaCloud,
+} from "react-icons/fa";
 import { RiJavascriptFill } from "react-icons/ri";
 import { MdWebhook } from "react-icons/md";
 import "./styles.css";
 import { ExperienceData } from "../../data/ExperienceData";
-import { hover } from "@testing-library/user-event/dist/hover";
 
 const icons = {
-  rocket: <FaRocket className="emoji" />,
-  file: <MdWebhook className="emoji" />,
-  laptop: <FaLaptopCode className="emoji" />,
-  javascript: <RiJavascriptFill className="emoji" />,
-  react: <FaReact className="emoji" />,
-  python: <FaPython className="emoji" />,
-  briefcase: <FaBriefcase className="emoji" />,
-  cloud: <FaCloud className="emoji" />
+  file: MdWebhook,
+  laptop: FaLaptopCode,
+  javascript: RiJavascriptFill,
+  react: FaReact,
+  python: FaPython,
+  briefcase: FaBriefcase,
+  cloud: FaCloud,
 };
 
 const Experience = ({ isDarkTheme }) => {
-  const [hoveredId, setHoveredId] = useState(null);
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-60px" });
 
   return (
-    <motion.div transition={{ ease: "easeInOut" }}>
-      <section className={`work-history ${isDarkTheme ? "dark-theme" : ""}`} id="work-history">
-        <h2 className="experience-title">Work Experience</h2>
-        <div className="experience-list">
-          {ExperienceData.map((experience) => (
+    <section
+      ref={sectionRef}
+      className={`work-history ${isDarkTheme ? "dark-theme" : ""}`}
+      id="work-history"
+    >
+      <motion.h2
+        className="experience-title"
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 1 } : {}}
+      >
+        Work Experience
+      </motion.h2>
+
+      <div className="exp-list">
+        {ExperienceData.map((exp, index) => {
+          const IconComponent = icons[exp.icon] || FaLaptopCode;
+          return (
             <motion.div
-              key={experience.id}
-              className="experience-item"
-              onMouseEnter={() => setHoveredId(experience.id)}
-              onMouseLeave={() => setHoveredId(null)}
-              whileHover={{ scale: 1.02 }}
+              key={exp.id}
+              className="exp-row"
+              initial={{ opacity: 0, y: 6 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: index * 0.04 }}
             >
-              {icons[experience.icon]}
-              <div>
-                <p className="title">
-                  {experience.title} at <span className="company-name">{experience.company}</span>
+              <div className="exp-icon">
+                <IconComponent />
+              </div>
+              <div className="exp-body">
+                <p className="exp-title">
+                  {exp.title}
+                  <span className="exp-company"> @ {exp.company}</span>
                 </p>
-                <p className="date">{experience.date}</p>
+                <p className="exp-date">{exp.date}</p>
+                {exp.skills?.length > 0 && (
+                  <p className="exp-skills">{exp.skills.join(" · ")}</p>
+                )}
               </div>
             </motion.div>
-          ))}
-        </div>
-      </section>
-    </motion.div>
+          );
+        })}
+      </div>
+    </section>
   );
 };
 

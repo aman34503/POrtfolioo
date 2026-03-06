@@ -1,32 +1,33 @@
-/*### -------WholePageBody-------- #*/
-.page {
-  background-color: #ffffff;
-  overflow: hidden;
+/*### ------- Home: minimal, light-themed -------- #*/
+.page-home {
+  background-color: #f8f9fa;
+  overflow-x: hidden;
+  overflow-y: auto;
   position: relative;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Dark Theme Styles */
-.dark-theme.page {
-  background-color: #0000009a;
-  color: #ffffff;
+.page.dark-theme,
+.page-home.dark-theme {
+  background-color: #0a0a0a;
+  color: #f0f0f0;
 }
 
-/*## --------Navbar and Header-------- #*/
 .head-wrap {
-  color: #222222;
+  color: #1a1a1a;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transition: color 0.3s ease; /* Smooth transition */
 }
 
-.dark-theme .head-wrap {
-  color: #ffffff;
+.page-home.dark-theme .head-wrap {
+  color: #f0f0f0;
 }
 
 .head {
-  margin-top: 120px;
+  margin-top: 80px;
 }
 
 .intro {
@@ -42,20 +43,21 @@
 }
 
 .about {
-  margin-top: 80px;
+  margin-top: 48px;
   display: flex;
   flex-direction: column;
-  gap: 170px;
+  gap: 48px;
   width: 100%;
 }
 
 .talk-title {
-  color: #000000; /* Default color */
-  transition: color 0.3s ease; /* Smooth transition */
+  color: #1a1a1a;
+  transition: color 0.3s ease;
 }
 
-.dark-theme .talk-title {
-  color: #ffffff; /* White in dark theme */
+.page-home.dark-theme .talk-title,
+.page-home.dark-theme .contact .section-title {
+  color: #f0f0f0;
 }
 
 .skills article {
@@ -73,12 +75,12 @@
 }
 
 .contact {
-  margin-top: 60px;
+  margin-top: 40px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  margin-bottom: 30px;
+  gap: 28px;
+  margin-bottom: 24px;
 }
 
 .contact article {
@@ -91,15 +93,15 @@ footer {
 }
 
 .footer-content {
-  color: rgb(0, 0, 0);
+  color: #1a1a1a;
   display: flex;
-  margin-top: 80px;
-  margin-bottom: 30px;
-  transition: color 0.3s ease; /* Smooth transition */
+  margin-top: 40px;
+  margin-bottom: 24px;
+  transition: color 0.3s ease;
 }
 
-.dark-theme .footer-content {
-  color: #ffffff; /* White in dark theme */
+.page-home.dark-theme .footer-content {
+  color: #f0f0f0;
 }
 
 /* Theme Toggle Button */
@@ -116,15 +118,14 @@ footer {
   border-radius: 50%;
   transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
+.page-home.dark-theme .theme-toggle-btn,
 .dark-theme .theme-toggle-btn {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #1a1a1a;
+  color: #f0f0f0;
 }
-.dark-theme .footer-content {
-  color: #ffffff; /* White in dark theme */
-}
+.page-home.dark-theme footer,
 .dark-theme footer {
-  border-top: 1px solid rgb(255, 255, 255); /* Light border in dark theme */
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 
@@ -163,7 +164,7 @@ footer {
 
 @media screen and (max-width: 675px) {
   .container {
-    gap: 70px;
+    gap: 40px;
   }
   .intro {
     width: 100%;

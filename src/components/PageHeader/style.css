@@ -1,7 +1,7 @@
 /* Add this to your existing CSS or create a new CSS file */
 
 .container {
-  max-width: 800px;
+  max-width: 720px;
   margin: 0 auto;
 }
 
@@ -12,14 +12,14 @@
 }
 
 .about-me-aman h2 {
-  font-size: 2em;
-  margin-bottom: 10px;
+  font-size: 1.35rem;
+  margin-bottom: 6px;
 }
 
 .about-me-aman h4 {
-  font-size: 1.2em;
-  margin: 5px 0;
-  color: #6b6a6a; 
+  font-size: 0.9rem;
+  margin: 3px 0;
+  color: #6b6a6a;
 }
 
 .profile-image {
@@ -38,13 +38,13 @@
 }
 
 .about-me h3 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
 }
 
 .about-me p {
-  font-size: 1em;
-  line-height: 1.6;
+  font-size: 0.85rem;
+  line-height: 1.55;
 }
 
 .text-area span {
@@ -52,7 +52,7 @@
 }
 
 .text-area h1 {
-  font-family: sans-serif;
+  font-family: inherit;
   font-size: clamp(26px, 25px + 3vw, 70px);
   line-height: 5.5rem;
   font-weight: 300;
