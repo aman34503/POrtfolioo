@@ -1,0 +1,19 @@
+.minimal-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.minimal-header-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.minimal-header-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: inherit;
+}
