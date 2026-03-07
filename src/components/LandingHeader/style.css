@@ -1,0 +1,115 @@
+/* Shared header - used on Home, Blog, Discussion */
+.landing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.landing-email-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  background: #0d0d0d;
+  border: none;
+  border-radius: 9999px;
+  color: #f5f5f5;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.landing-email-btn:hover {
+  background: #252525;
+  color: #f5f5f5;
+}
+
+[data-theme="light"] .landing-email-btn {
+  background: #1a1a1a;
+  color: #f5f5f5;
+}
+
+[data-theme="light"] .landing-email-btn:hover {
+  background: #2a2a2a;
+}
+
+.landing-email-dot {
+  width: 8px;
+  height: 8px;
+  background: #ff8c00;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.landing-header-right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.landing-discussion-btn {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #ff8c00 0%, #ff6b35 100%);
+  color: #fff !important;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.landing-discussion-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  color: #fff !important;
+}
+
+.landing-header-right a:not(.landing-discussion-btn) {
+  color: #f5f5f5;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.landing-header-right a:not(.landing-discussion-btn):hover {
+  color: #aaaaaa;
+}
+
+[data-theme="light"] .landing-header-right a:not(.landing-discussion-btn) {
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .landing-header-right a:not(.landing-discussion-btn):hover {
+  color: #555;
+}
+
+.landing-theme-btn {
+  background: none;
+  border: none;
+  color: #f5f5f5;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  transition: color 0.2s;
+}
+
+.landing-theme-btn:hover {
+  color: #aaaaaa;
+}
+
+[data-theme="light"] .landing-theme-btn {
+  color: #1a1a1a;
+}
+
+@media (max-width: 768px) {
+  .landing-header {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 24px;
+    align-items: flex-start;
+  }
+}

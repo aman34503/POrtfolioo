@@ -11,6 +11,31 @@
   color: #e8e8e8;
 }
 
+/* Landing layout - used on Home, Blog, Discussion */
+.landing-page {
+  min-height: 100vh;
+  background: #1a1a1a;
+  color: #f5f5f5;
+  font-family: inherit;
+}
+
+.landing-page:not(.dark-theme) {
+  background: #f5f5f5;
+  color: #1a1a1a;
+}
+
+.landing-main {
+  width: 100%;
+  padding: 0 48px 60px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .landing-main {
+    padding: 0 24px 40px;
+  }
+}
+
 .app-container {
   max-width: 720px;
   margin: 0 auto;

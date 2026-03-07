@@ -4,6 +4,17 @@
   flex-direction: column;
 }
 
+.contact-page-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 80px 0 8px;
+  color: #f5f5f5;
+}
+
+.landing-page:not(.dark-theme) .contact-page-title {
+  color: #1a1a1a;
+}
+
 .contact-container {
   flex: 1;
 }

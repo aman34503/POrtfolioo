@@ -1,193 +1,218 @@
-/*### ------- Home: minimal, light-themed -------- #*/
-.page-home {
-  background-color: #f8f9fa;
-  overflow-x: hidden;
-  overflow-y: auto;
-  position: relative;
-  min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.page.dark-theme,
-.page-home.dark-theme {
-  background-color: #0a0a0a;
-  color: #f0f0f0;
-}
-
-.head-wrap {
-  color: #1a1a1a;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: color 0.3s ease; /* Smooth transition */
-}
-
-.page-home.dark-theme .head-wrap {
-  color: #f0f0f0;
-}
-
-.head {
+/* Home page - reference design layout (content unchanged) */
+/* Hero - large intro text */
+.landing-hero {
   margin-top: 80px;
+  margin-bottom: 64px;
 }
 
-.intro {
-  display: flex;
-  flex-direction: column;
-  position: relative;
+.landing-hero-title {
+  font-size: clamp(1.75rem, 4.5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0;
+  color: #f5f5f5;
 }
 
-.resume-btn-wrap {
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px;
-}
 
-.about {
-  margin-top: 48px;
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-  width: 100%;
-}
-
-.talk-title {
+.landing-page:not(.dark-theme) .landing-hero-title {
   color: #1a1a1a;
-  transition: color 0.3s ease;
 }
 
-.page-home.dark-theme .talk-title,
-.page-home.dark-theme .contact .section-title {
-  color: #f0f0f0;
+/* Recent Work Experience */
+.landing-recent {
+  margin-bottom: 48px;
 }
 
-.skills article {
+.landing-section-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 16px;
+  color: #f5f5f5;
+}
+
+.landing-page:not(.dark-theme) .landing-section-title {
+  color: #1a1a1a;
+}
+
+.landing-recent-text {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #aaaaaa;
+  margin: 0;
+}
+
+.landing-page:not(.dark-theme) .landing-recent-text {
+  color: #555;
+}
+
+.landing-amp {
+  color: #ff8c00;
+  font-weight: 600;
+}
+
+.landing-recent-text strong {
+  color: #f5f5f5;
+}
+
+.landing-page:not(.dark-theme) .landing-recent-text strong {
+  color: #1a1a1a;
+}
+
+/* CTA section - cal.com + Resume */
+.landing-cta {
+  margin-bottom: 48px;
+}
+
+.landing-cta .contact-container {
+  position: static;
   width: 100%;
+}
+
+/* Skills section */
+.landing-skills {
+  margin-bottom: 48px;
+}
+
+/* Category tabs - horizontal list */
+.landing-tabs {
   display: flex;
-  justify-content: flex-end;
-  margin-bottom: 100px;
+  gap: 24px;
+  margin-bottom: 0;
+  flex-wrap: wrap;
 }
 
-.about article {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 50px;
+.landing-tab {
+  background: none;
+  border: none;
+  padding: 12px 0;
+  font-size: 0.9rem;
+  color: #aaaaaa;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color 0.2s;
 }
 
-.contact {
-  margin-top: 40px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  margin-bottom: 24px;
+.landing-tab:hover {
+  color: #d0d0d0;
 }
 
-.contact article {
-  width: 50%;
+.landing-tab.active {
+  color: #f5f5f5;
+  font-weight: 600;
 }
 
-footer {
+.landing-page:not(.dark-theme) .landing-tab {
+  color: #666;
+}
+
+.landing-page:not(.dark-theme) .landing-tab:hover,
+.landing-page:not(.dark-theme) .landing-tab.active {
+  color: #1a1a1a;
+}
+
+.landing-tabs-line {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin-bottom: 0;
+}
+
+.landing-page:not(.dark-theme) .landing-tabs-line {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* Content list - title left, metadata right */
+.landing-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.landing-list-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.footer-content {
+.landing-list-item:last-child {
+  border-bottom: none;
+}
+
+.landing-page:not(.dark-theme) .landing-list-item {
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+.landing-list-title {
+  color: #f5f5f5;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  flex: 1;
+  min-width: 0;
+  transition: color 0.2s;
+}
+
+.landing-list-title:hover {
+  color: #aaaaaa;
+}
+
+.landing-page:not(.dark-theme) .landing-list-title {
   color: #1a1a1a;
+}
+
+.landing-page:not(.dark-theme) .landing-list-title:hover {
+  color: #555;
+}
+
+.landing-list-meta {
+  font-size: 0.8rem;
+  color: #888;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.landing-page:not(.dark-theme) .landing-list-meta {
+  color: #888;
+}
+
+/* Footer links */
+.landing-footer {
   display: flex;
-  margin-top: 40px;
-  margin-bottom: 24px;
-  transition: color 0.3s ease;
+  gap: 24px;
+  margin-top: 48px;
+  padding-top: 24px;
 }
 
-.page-home.dark-theme .footer-content {
-  color: #f0f0f0;
+.landing-footer a {
+  color: #aaaaaa;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
 }
 
-/* Theme Toggle Button */
-.theme-toggle-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: #ffffff;
-  color: #222222;
-  padding: 10px;
-  cursor: pointer;
-  border: none;
-  font-size: 14px;
-  border-radius: 50%;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
-}
-.page-home.dark-theme .theme-toggle-btn,
-.dark-theme .theme-toggle-btn {
-  background-color: #1a1a1a;
-  color: #f0f0f0;
-}
-.page-home.dark-theme footer,
-.dark-theme footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+.landing-footer a:hover {
+  color: #f5f5f5;
 }
 
-
-
-
-/* Responsive Styles */
-@media screen and (max-width: 955px) {
-  .contact article {
-    width: 100%;
-  }
+.landing-page:not(.dark-theme) .landing-footer a {
+  color: #666;
 }
 
-@media screen and (max-width: 825px) {
-  .head-wrap {
-    padding: 65px 10px 0 45px;
-  }
-  .head {
-    margin-top: 40px;
-  }
+.landing-page:not(.dark-theme) .landing-footer a:hover {
+  color: #1a1a1a;
 }
 
-@media screen and (max-width: 400px) {
-  .head-wrap {
-    padding: 65px 10px 0 25px;
+@media (max-width: 768px) {
+  .landing-hero {
+    margin-top: 48px;
+    margin-bottom: 40px;
   }
-  .intro {
-    top: 100px;
-  }
-}
 
-@media screen and (max-width: 550px) {
-  .about {
-    gap: 80px;
-  }
-}
-
-@media screen and (max-width: 675px) {
-  .container {
-    gap: 40px;
-  }
-  .intro {
-    width: 100%;
-    left: 0;
-    top: 26px;
-    right: 20px;
-  }
-  .work {
-    gap: 80px;
-  }
-  .projects-wrap {
-    gap: 100px;
-  }
-  .work {
-    margin-top: 38px;
-  }
-  .skills article {
-    margin-bottom: -10px;
-  }
-  .about {
-    gap: 60px;
-  }
-  .about article {
-    margin-bottom: 0px;
+  .landing-list-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
   }
 }
