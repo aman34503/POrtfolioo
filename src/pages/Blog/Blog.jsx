@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Nav, MinimalHeader } from "../../components";
+import { LandingHeader } from "../../components";
 import { useTheme } from "../../context/ThemeContext";
 import blogLinksFallback from "./blogLinks.json";
 import { fetchHashnodePosts } from "../../utils/blogApi";
@@ -31,15 +31,15 @@ const Blog = () => {
 
   return (
     <motion.div
-      className={`page-wrapper page-blog ${isDarkTheme ? "dark-theme" : ""}`}
+      className={`landing-page page-blog ${isDarkTheme ? "dark-theme" : ""}`}
       exit={{ opacity: 0 }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.25 }}
     >
-      <Nav isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
-      <div className="app-container blog-container">
-        <MinimalHeader title="Blogs" isDarkTheme={isDarkTheme} />
+      <LandingHeader isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
+      <main className="landing-main">
+        <h1 className="blog-page-title">Blogs</h1>
         {error && <p className="blog-error">{error}</p>}
         {loading ? (
           <p className="blog-loading">Loading…</p>
@@ -63,7 +63,7 @@ const Blog = () => {
             ))}
           </ul>
         )}
-      </div>
+      </main>
     </motion.div>
   );
 };

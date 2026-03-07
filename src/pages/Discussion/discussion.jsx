@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Nav, MinimalHeader } from "../../components";
+import { LandingHeader } from "../../components";
 import { useTheme } from "../../context/ThemeContext";
 import { getComments, saveComment } from "../../utils/discussionService";
 import "./style.css";
@@ -34,16 +34,15 @@ const Discussion = () => {
 
   return (
     <motion.div
-      className={`page-wrapper page-discussion ${isDarkTheme ? "dark-theme" : ""}`}
+      className={`landing-page page-discussion ${isDarkTheme ? "dark-theme" : ""}`}
       exit={{ opacity: 0 }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.25 }}
     >
-      <Nav isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
-      <div className="app-container discussion-container">
-        <MinimalHeader title="Discussion" isDarkTheme={isDarkTheme} />
-
+      <LandingHeader isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
+      <main className="landing-main discussion-container">
+        <h1 className="disc-page-title">Discussion</h1>
         <form className="disc-form" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -85,7 +84,7 @@ const Discussion = () => {
             ))
           )}
         </div>
-      </div>
+      </main>
     </motion.div>
   );
 };

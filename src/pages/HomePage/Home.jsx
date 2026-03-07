@@ -1,84 +1,124 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
-import { motion } from "framer-motion";
-import {
-  ContactBtn,
-  PageHeader,
-  SkillsIntro,
-  Intro,
-  Nav,
-  SectionTitle,
-  SocialConnect,
-  ContactEmail,
-  FooterNav,
-  SkillsBox,
-  Certifications,
-} from "../../components";
-import Experience from "../../components/Experience/Experience";
-import WorkCard from "../../components/WorkCard/WorkCard";
 import { useTheme } from "../../context/ThemeContext";
+import { ExperienceData } from "../../data/ExperienceData";
+import { WorkData } from "../../data/WorkData";
+import { LandingHeader, ContactBtn } from "../../components";
+import "../../components/ContactBtn/style.css";
+import SkillsBox from "../../components/SkillsBox/SkillsBox";
+import blogLinksFallback from "../Blog/blogLinks.json";
+import { fetchHashnodePosts } from "../../utils/blogApi";
 
 const Home = () => {
   const { isDarkTheme, toggleTheme } = useTheme();
+  const [activeTab, setActiveTab] = useState("posts");
+  const [posts, setPosts] = useState(blogLinksFallback);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetchHashnodePosts()
+      .then((data) => !cancelled && data?.length > 0 && setPosts(data))
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, []);
+
+  const tabs = [
+    { id: "posts", label: "Posts", count: posts.length },
+    { id: "work", label: "Work experience", count: ExperienceData.length },
+    { id: "projects", label: "Projects", count: WorkData.length },
+  ];
+
+  const recentWork = ExperienceData[0];
 
   return (
-    <motion.div
-      className={`page page-home ${isDarkTheme ? "dark-theme" : ""}`}
-      exit={{ x: "-100vw" }}
-      transition={{ ease: "easeInOut" }}
-    >
-      <Nav isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
-      
-      <div className="head-wrap" id="home">
-        <div className="head">
-          <PageHeader isDarkTheme={isDarkTheme} />
-          <SkillsIntro isDarkTheme={isDarkTheme} />
-        </div>
+    <div className={`landing-page ${isDarkTheme ? "dark-theme" : ""}`} id="home">
+      <LandingHeader isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
 
-        <div className="container">
-          <section className="intro">
-            <Intro isDarkTheme={isDarkTheme} />
-            <ContactBtn
-              text="Resume"
-              link="https://drive.google.com/file/d/1oBfmyTJUrsZ1_JcmGair9MEE0cOIRjmr/view?usp=sharing"
-              padding="clamp(8px, 2px + 1vw, 10px)"
-              width="clamp(120px, 90px + 10vw ,220px)"
-            />
-          </section>
+      <main className="landing-main">
+        {/* Hero */}
+        <section className="landing-hero">
+          <h1 className="landing-hero-title">
+            Hi, I am Aman.<br />
+Exploring ideas through code          </h1>
+        </section>
 
-          <section className="experience" id="experience">
-            <Experience isDarkTheme={isDarkTheme} />
-          </section>
+        {/* Recent Work Experience */}
+        <section className="landing-recent">
+          <h2 className="landing-section-title">Recent Work Experience</h2>
+          <p className="landing-recent-text">
+            My most recent role was at <span className="landing-amp">&</span>{" "}
+            <strong>{recentWork?.company}</strong> where I worked as a {recentWork?.title}.
+            I work with {recentWork?.skills?.slice(0, 4).join(", ")} and more.
+          </p>
+        </section>
 
-          <section className="work" id="work">
-            <WorkCard isDarkTheme={isDarkTheme} />
-          </section>
+        {/* CTA - cal.com + Resume */}
+        <section className="landing-cta">
+          <ContactBtn
+            text="Resume"
+            link="https://drive.google.com/file/d/1C_Zgycn3VTbuVPSLMEdtiTSddM3EiT86/view?usp=sharing"
+            padding="clamp(8px, 2px + 1vw, 10px)"
+            width="clamp(120px, 90px + 10vw, 220px)"
+          />
+        </section>
 
-          <section className="skills">
-            <SkillsBox isDarkTheme={isDarkTheme} />
-          </section>
+        {/* Skills
+        <section className="landing-skills">
+          <SkillsBox isDarkTheme={isDarkTheme} />
+        </section> */}
 
-          <section className="certifications" id="certifications">
-            <Certifications isDarkTheme={isDarkTheme} />
-          </section>
+        {/* Tabs */}
+        <nav className="landing-tabs">
+          {tabs.map((t) => (
+            <button
+              key={t.id}
+              className={`landing-tab ${activeTab === t.id ? "active" : ""}`}
+              onClick={() => setActiveTab(t.id)}
+            >
+              {t.label} ({t.count})
+            </button>
+          ))}
+        </nav>
+        <div className="landing-tabs-line" />
 
-          <section className="contact" id="connect" isDarkTheme={isDarkTheme}>
-            <SectionTitle
-              title="Let's Have a Talk !"
-              fontSize="clamp(22px, 5vw, 36px)"
-              className="talk-title"
-            />
-            <ContactEmail isDarkTheme={isDarkTheme} />
-            <footer>
-              <SocialConnect dim="25px" size="15px" isDarkTheme={isDarkTheme} />
-              <div className="footer-content">
-                <FooterNav isDarkTheme={isDarkTheme} />
-              </div>
-            </footer>
-          </section>
-        </div>
-      </div>
-    </motion.div>
+        {/* Content List */}
+        <ul className="landing-list">
+          {activeTab === "posts" &&
+            posts.map((p, i) => (
+              <li key={p.id || i} className="landing-list-item">
+                <a href={p.link} target="_blank" rel="noopener noreferrer" className="landing-list-title">
+                  {p.title}
+                </a>
+                <span className="landing-list-meta">BLOG / {p.time}</span>
+              </li>
+            ))}
+          {activeTab === "work" &&
+            ExperienceData.map((e) => (
+              <li key={e.id} className="landing-list-item">
+                <span className="landing-list-title">{e.title} @ {e.company}</span>
+                <span className="landing-list-meta">EXPERIENCE / {e.date.split(" ").pop()}</span>
+              </li>
+            ))}
+          {activeTab === "projects" &&
+            WorkData.map((p) => (
+              <li key={p.id} className="landing-list-item">
+                <a href={p.github} target="_blank" rel="noopener noreferrer" className="landing-list-title">
+                  {p.name}
+                </a>
+                <span className="landing-list-meta">PROJECT / {p.techStack[0] || "—"}</span>
+              </li>
+            ))}
+        </ul>
+
+        {/* Footer links */}
+        <footer className="landing-footer">
+          <Link to="/blog">Blog</Link>
+          <Link to="/discussion">Discussion</Link>
+          <Link to="/contact">Contact</Link>
+        </footer>
+      </main>
+    </div>
   );
 };
 

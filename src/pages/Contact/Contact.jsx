@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Nav, MinimalHeader } from "../../components";
+import { LandingHeader } from "../../components";
 import { useTheme } from "../../context/ThemeContext";
 import { motion } from "framer-motion";
 import "./style.css";
@@ -26,16 +26,15 @@ const Contact = () => {
 
   return (
     <motion.div
-      className={`page-wrapper page-contact ${isDarkTheme ? "dark-theme" : ""}`}
+      className={`landing-page page-contact ${isDarkTheme ? "dark-theme" : ""}`}
       exit={{ opacity: 0 }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.25 }}
     >
-      <Nav isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
-      <div className="app-container contact-container">
-        <MinimalHeader title="Contact" isDarkTheme={isDarkTheme} />
-
+      <LandingHeader isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
+      <main className="landing-main contact-container">
+        <h1 className="contact-page-title">Contact</h1>
         <p className="contact-sub">Get in touch or drop a message.</p>
 
         <form className="contact-form" onSubmit={handleSubmit}>
@@ -64,7 +63,7 @@ const Contact = () => {
           />
           <button type="submit" className="contact-btn">Send</button>
         </form>
-      </div>
+      </main>
     </motion.div>
   );
 };

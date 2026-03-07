@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import NormalizeStyle from "./Global/normalizeStyle";
 import { ThemeProvider } from "./context/ThemeContext";
-import { Contact, Home, Loader } from "./pages";
+import { Contact, Home } from "./pages";
 import Blog from "./pages/Blog/Blog";
 import Discussion from "./pages/Discussion/discussion";
 import "./Global/ScrollBar.css";
@@ -11,19 +11,13 @@ import { AnimatePresence } from "framer-motion";
 
 export const App = () => {
   const location = useLocation();
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2500);
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <ThemeProvider>
       <NormalizeStyle />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={loading ? <Loader /> : <Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/discussion" element={<Discussion />} />

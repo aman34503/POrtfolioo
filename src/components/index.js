@@ -1,4 +1,5 @@
 export { default as Nav } from "./Nav/Nav";
+export { default as LandingHeader } from "./LandingHeader/LandingHeader";
 export { default as MinimalHeader } from "./MinimalHeader/MinimalHeader";
 export { default as ContactBtn } from "./ContactBtn/ContactBtn";
 export { default as CTABtn } from "./CTABtn/CTABtn";
