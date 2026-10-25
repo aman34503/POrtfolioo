@@ -6,7 +6,6 @@ import { ExperienceData } from "../../data/ExperienceData";
 import { WorkData } from "../../data/WorkData";
 import { LandingHeader, ContactBtn } from "../../components";
 import "../../components/ContactBtn/style.css";
-import SkillsBox from "../../components/SkillsBox/SkillsBox";
 import blogLinksFallback from "../Blog/blogLinks.json";
 import { fetchHashnodePosts } from "../../utils/blogApi";
 

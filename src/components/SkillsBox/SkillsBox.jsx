@@ -1,5 +1,4 @@
 import React from "react";
-import { SiSalesforce } from "react-icons/si";
 import "./style.css";
 
 const SkillsBox = ({ isDarkTheme }) => {

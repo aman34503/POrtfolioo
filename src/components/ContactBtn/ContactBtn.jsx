@@ -66,7 +66,7 @@ const ContactBtn = (props) => {
           >
             Schedule a meet / cal.com
           </a>
-          <a href={props.link} target="_blank" rel="noreferrer">
+          <a href={props.link} target="_blank" rel="noopener noreferrer">
             <motion.button
               style={style}
               className="cta-btn"

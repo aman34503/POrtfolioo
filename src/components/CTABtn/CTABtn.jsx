@@ -15,7 +15,7 @@ const CTABtn = (props) => {
   };
   return (
     <>
-      <a href={props.link} target="_blank" rel="noreferrer">
+      <a href={props.link} target="_blank" rel="noopener noreferrer">
         <motion.button
           style={style}
           className="cta-btn"
