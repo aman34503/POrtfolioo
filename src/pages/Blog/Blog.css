@@ -1,0 +1,121 @@
+/* ── Blog page ── */
+.blog-page {
+  padding-top: calc(80px + var(--space-9));
+  min-height: 80vh;
+}
+
+.blog-header {
+  margin-bottom: var(--space-7);
+}
+
+.blog-heading {
+  margin-bottom: var(--space-3);
+}
+
+.blog-intro {
+  font-size: var(--text-body);
+  color: var(--text-secondary);
+}
+
+.blog-error {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  color: var(--text-muted);
+  margin-bottom: var(--space-5);
+}
+
+.blog-loading {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  color: var(--text-muted);
+}
+
+.blog-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.blog-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.blog-item:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.blog-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-5) 0;
+  text-decoration: none;
+  transition: background-color var(--duration-fast);
+}
+
+.blog-link:hover {
+  background-color: var(--surface-hover);
+  margin-left: calc(-1 * var(--space-4));
+  margin-right: calc(-1 * var(--space-4));
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+.blog-title {
+  font-size: var(--text-body);
+  font-weight: 500;
+  color: var(--text);
+  flex: 1;
+  min-width: 0;
+  transition: color var(--duration-fast);
+}
+
+.blog-link:hover .blog-title {
+  color: var(--accent);
+}
+
+.blog-meta {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: var(--tracking-wide);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.blog-read-time {
+  color: var(--text-muted);
+}
+
+.blog-ext {
+  margin-top: var(--space-6);
+}
+
+.blog-ext-link {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  color: var(--accent);
+  letter-spacing: var(--tracking-wide);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--duration-fast);
+}
+
+.blog-ext-link:hover {
+  text-decoration-color: var(--accent);
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .blog-page {
+    padding-top: calc(60px + var(--space-8));
+  }
+
+  .blog-link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+}

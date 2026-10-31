@@ -1,0 +1,134 @@
+/* ── Discussion page ── */
+.disc-page {
+  padding-top: calc(80px + var(--space-9));
+  min-height: 80vh;
+}
+
+.disc-header {
+  margin-bottom: var(--space-7);
+}
+
+.disc-intro {
+  font-size: var(--text-body);
+  color: var(--text-secondary);
+  margin-top: var(--space-3);
+}
+
+/* ── Form ── */
+.disc-form {
+  margin-bottom: var(--space-7);
+}
+
+.disc-input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  line-height: var(--leading-normal);
+  transition: border-color var(--duration-fast);
+}
+
+.disc-input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.disc-input::placeholder {
+  color: var(--text-muted);
+}
+
+.disc-name-input {
+  max-width: 300px;
+  margin-bottom: var(--space-3);
+}
+
+.disc-row {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-end;
+}
+
+.disc-text-input {
+  flex: 1;
+  resize: vertical;
+}
+
+.disc-submit {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  color: var(--bg);
+  background: var(--text);
+  padding: var(--space-3) var(--space-6);
+  border: none;
+  letter-spacing: var(--tracking-wide);
+  transition: opacity var(--duration-fast);
+  align-self: flex-end;
+  white-space: nowrap;
+}
+
+.disc-submit:hover {
+  opacity: 0.85;
+}
+
+/* ── Comments ── */
+.disc-comments {
+  margin-top: var(--space-6);
+}
+
+.disc-empty {
+  font-size: var(--text-small);
+  color: var(--text-muted);
+}
+
+.disc-comment {
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.disc-comment:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.disc-comment-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-2);
+}
+
+.disc-author {
+  font-weight: 500;
+  font-size: var(--text-small);
+  color: var(--text);
+}
+
+.disc-date {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: var(--tracking-wide);
+}
+
+.disc-body {
+  font-size: var(--text-small);
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .disc-page {
+    padding-top: calc(60px + var(--space-8));
+  }
+
+  .disc-row {
+    flex-direction: column;
+  }
+
+  .disc-submit {
+    align-self: flex-start;
+  }
+}

@@ -1,0 +1,87 @@
+/* ── Writing Section ── */
+.writing-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.writing-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.writing-item:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.writing-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-5) 0;
+  text-decoration: none;
+  transition: background-color var(--duration-fast);
+}
+
+.writing-link:hover {
+  background-color: var(--surface-hover);
+  margin-left: calc(-1 * var(--space-4));
+  margin-right: calc(-1 * var(--space-4));
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+.writing-title {
+  font-size: var(--text-body);
+  font-weight: 500;
+  color: var(--text);
+  flex: 1;
+  min-width: 0;
+  transition: color var(--duration-fast);
+}
+
+.writing-link:hover .writing-title {
+  color: var(--accent);
+}
+
+.writing-meta {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: var(--tracking-wide);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.writing-read-time {
+  color: var(--text-muted);
+}
+
+.writing-footer {
+  display: flex;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.writing-all-link {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--duration-fast);
+}
+
+.writing-all-link:hover {
+  text-decoration-color: var(--accent);
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .writing-link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+}

@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { LandingHeader } from "../../components";
-import { useTheme } from "../../context/ThemeContext";
-import blogLinksFallback from "./blogLinks.json";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 import { fetchHashnodePosts } from "../../utils/blogApi";
-import "./style.css";
+import blogLinksFallback from "./blogLinks.json";
+import "./Blog.css";
 
 const Blog = () => {
-  const { isDarkTheme, toggleTheme } = useTheme();
-  const [blogLinks, setBlogLinks] = useState(blogLinksFallback);
+  const [posts, setPosts] = useState(blogLinksFallback);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -17,11 +16,11 @@ const Blog = () => {
     setLoading(true);
     setError(null);
     fetchHashnodePosts()
-      .then((posts) => {
-        if (!cancelled && posts.length > 0) setBlogLinks(posts);
+      .then((data) => {
+        if (!cancelled && data.length > 0) setPosts(data);
       })
       .catch(() => {
-        if (!cancelled) setError("Could not load from API");
+        if (!cancelled) setError("could not load posts from hashnode");
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
@@ -31,39 +30,65 @@ const Blog = () => {
 
   return (
     <motion.div
-      className={`landing-page page-blog ${isDarkTheme ? "dark-theme" : ""}`}
-      exit={{ opacity: 0 }}
+      className="page"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       transition={{ duration: 0.25 }}
     >
-      <LandingHeader isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
-      <main className="landing-main">
-        <h1 className="blog-page-title">Blogs</h1>
-        {error && <p className="blog-error">{error}</p>}
-        {loading ? (
-          <p className="blog-loading">Loading…</p>
-        ) : (
-          <ul className="blog-list">
-            {blogLinks.map((blog, i) => (
-              <motion.li
-                key={blog.id || i}
-                className="blog-row"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.03 * i }}
-              >
-                <a href={blog.link} target="_blank" rel="noopener noreferrer" className="blog-title">
-                  {blog.title}
-                </a>
-                <span className="blog-meta">
-                  BLOG / {blog.time}
-                </span>
-              </motion.li>
-            ))}
-          </ul>
-        )}
+      <Header />
+      <main className="blog-page">
+        <div className="page-inner">
+          <div className="blog-header">
+            <span className="section-number">blog</span>
+            <h1 className="section-heading blog-heading">writing</h1>
+            <p className="blog-intro">
+              thoughts on building, shipping, and everything in between.
+            </p>
+          </div>
+
+          {error && <p className="blog-error">{error}</p>}
+
+          {loading ? (
+            <p className="blog-loading">loading…</p>
+          ) : (
+            <ul className="blog-list">
+              {posts.map((post, i) => (
+                <li key={post.id || i} className="blog-item">
+                  <a
+                    href={post.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="blog-link"
+                  >
+                    <span className="blog-title">{post.title}</span>
+                    <span className="blog-meta">
+                      {post.time}
+                      {post.brief && (
+                        <span className="blog-read-time">
+                          {" "}· {Math.max(1, Math.ceil((post.brief?.length || 0) / 200))} min
+                        </span>
+                      )}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <div className="blog-ext">
+            <a
+              href="https://aman04.hashnode.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="blog-ext-link"
+            >
+              all posts on hashnode ↗
+            </a>
+          </div>
+        </div>
       </main>
+      <Footer />
     </motion.div>
   );
 };

@@ -1,0 +1,121 @@
+/* ── Top Status Bar (Editorial "Currently" ticker at top) ── */
+.top-status-bar {
+  width: 100%;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  position: relative;
+  z-index: 40;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.top-status-bar::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.top-status-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 8px var(--content-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  white-space: nowrap;
+}
+
+.status-live-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.live-indicator {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.live-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #1db954;
+  opacity: 0.75;
+  animation: livePing 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.live-core {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1db954;
+}
+
+@keyframes livePing {
+  75%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.status-mono-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-label);
+  color: var(--text-muted);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.status-items-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  overflow-x: auto;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-small);
+}
+
+.item-key {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-label);
+  color: var(--text-muted);
+  text-transform: lowercase;
+}
+
+.item-value {
+  color: var(--text);
+  font-weight: 500;
+  letter-spacing: var(--tracking-tight);
+}
+
+.status-sep {
+  color: var(--border);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  user-select: none;
+}
+
+.status-spotify-item {
+  flex-shrink: 0;
+}
+
+@media (max-width: 860px) {
+  .top-status-inner {
+    justify-content: flex-start;
+    gap: var(--space-3);
+  }
+}

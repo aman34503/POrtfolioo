@@ -1,0 +1,40 @@
+/* ── Tools & Stack ── */
+.tools-grid {
+  margin: 0;
+  padding: 0;
+}
+
+.tools-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--space-5);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+}
+
+.tools-row:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.tools-category {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: var(--tracking-wide);
+}
+
+.tools-list {
+  font-size: var(--text-small);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  .tools-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+}

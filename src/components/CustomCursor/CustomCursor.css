@@ -1,0 +1,51 @@
+/* ── Custom cursor ── */
+.custom-cursor {
+  position: fixed;
+  top: -5px;
+  left: -5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid var(--text);
+  pointer-events: none;
+  z-index: 10000;
+  transition: width var(--duration-fast) var(--ease-out),
+              height var(--duration-fast) var(--ease-out),
+              top var(--duration-fast) var(--ease-out),
+              left var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast);
+  mix-blend-mode: difference;
+}
+
+.custom-cursor--hover {
+  width: 28px;
+  height: 28px;
+  top: -14px;
+  left: -14px;
+  border-color: var(--accent);
+}
+
+/* Hide default cursor when custom is active */
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+
+  a, button, [role="button"], input, textarea, select {
+    cursor: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .custom-cursor {
+    display: none;
+  }
+
+  body {
+    cursor: auto !important;
+  }
+
+  a, button, [role="button"], input, textarea, select {
+    cursor: auto !important;
+  }
+}

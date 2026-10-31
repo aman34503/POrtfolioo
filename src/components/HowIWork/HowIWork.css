@@ -1,0 +1,91 @@
+/* ── How I Work ── */
+.process-stepper {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-7);
+}
+
+.process-step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  position: relative;
+}
+
+.process-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-label);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: var(--tracking-wide);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border);
+  white-space: nowrap;
+  transition: color var(--duration-fast), border-color var(--duration-fast);
+}
+
+.process-step:hover .process-label {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.process-note {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: var(--space-2);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-small);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.process-connector {
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+  margin: 0 var(--space-1);
+  flex-shrink: 0;
+}
+
+.process-aside {
+  font-size: var(--text-small);
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+  max-width: 520px;
+  padding-top: var(--space-7);
+}
+
+.process-aside-marker {
+  color: var(--accent);
+  margin-right: var(--space-2);
+}
+
+/* ── Mobile: vertical stepper ── */
+@media (max-width: 640px) {
+  .process-stepper {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .process-connector {
+    display: none;
+  }
+
+  .process-note {
+    position: static;
+    margin-top: var(--space-1);
+    display: block;
+  }
+
+  .process-step {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .process-label {
+    width: 100%;
+  }
+}

@@ -1,0 +1,77 @@
+/* ═══════════════════════════════════════════════════
+   Design Tokens — single source of truth
+   ═══════════════════════════════════════════════════ */
+
+:root {
+  /* ── Color: Light mode (default) ── */
+  --bg: #f2f0eb;
+  --text: #1a1a1a;
+  --text-secondary: rgba(26, 26, 26, 0.6);
+  --text-muted: #8a8780;
+  --accent: #486581;
+  --accent-hover: #334e68;
+  --border: rgba(26, 26, 26, 0.1);
+  --surface: rgba(26, 26, 26, 0.03);
+  --surface-hover: rgba(26, 26, 26, 0.05);
+
+  /* ── Typography ── */
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+
+  /* Display scale */
+  --text-hero: clamp(3rem, 6vw, 5.5rem);
+  --text-h2: clamp(1.5rem, 3vw, 2.25rem);
+  --text-h3: clamp(1.125rem, 1.5vw, 1.375rem);
+  --text-body: 1.0625rem; /* 17px */
+  --text-small: 0.875rem; /* 14px */
+  --text-xs: 0.75rem; /* 12px */
+  --text-mono-label: 0.8125rem; /* 13px */
+
+  /* Line heights */
+  --leading-tight: 1.1;
+  --leading-snug: 1.3;
+  --leading-normal: 1.65;
+
+  /* Letter spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+  --tracking-wider: 0.05em;
+
+  /* ── Spacing (8px grid) ── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* ── Layout ── */
+  --max-width: 1120px;
+  --content-padding: clamp(24px, 5vw, 48px);
+
+  /* ── Transitions ── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+/* ── Color: Dark mode ── */
+html[data-theme="dark"] {
+  --bg: #141414;
+  --text: #e8e6e1;
+  --text-secondary: rgba(232, 230, 225, 0.6);
+  --text-muted: #8a8780;
+  --accent: #8fa3b3;
+  --accent-hover: #a0b4c3;
+  --border: rgba(232, 230, 225, 0.1);
+  --surface: rgba(232, 230, 225, 0.03);
+  --surface-hover: rgba(232, 230, 225, 0.06);
+}

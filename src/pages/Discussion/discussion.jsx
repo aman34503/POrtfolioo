@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { LandingHeader } from "../../components";
-import { useTheme } from "../../context/ThemeContext";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 import { getComments, saveComment } from "../../utils/discussionService";
-import "./style.css";
+import "./Discussion.css";
 
 const Discussion = () => {
-  const { isDarkTheme, toggleTheme } = useTheme();
   const [comments, setComments] = useState([]);
   const [author, setAuthor] = useState("");
   const [text, setText] = useState("");
@@ -20,7 +19,7 @@ const Discussion = () => {
     const trimmed = (text || "").trim();
     if (!trimmed) return;
     const newComment = saveComment({
-      author: (author || "").trim() || "Anonymous",
+      author: (author || "").trim() || "anonymous",
       text: trimmed,
     });
     setComments((prev) => [newComment, ...prev]);
@@ -29,62 +28,70 @@ const Discussion = () => {
 
   const formatDate = (iso) => {
     const d = new Date(iso);
-    return d.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+    return d.toLocaleDateString("en-GB", { month: "short", day: "numeric", year: "numeric" }).toLowerCase();
   };
 
   return (
     <motion.div
-      className={`landing-page page-discussion ${isDarkTheme ? "dark-theme" : ""}`}
-      exit={{ opacity: 0 }}
+      className="page"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       transition={{ duration: 0.25 }}
     >
-      <LandingHeader isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
-      <main className="landing-main discussion-container">
-        <h1 className="disc-page-title">Discussion</h1>
-        <form className="disc-form" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Your name"
-            value={author}
-            onChange={(e) => setAuthor(e.target.value)}
-            className="disc-input disc-name"
-          />
-          <div className="disc-row">
-            <textarea
-              placeholder="Add a comment…"
-              value={text}
-              onChange={(e) => setText(e.target.value)}
-              className="disc-input disc-text"
-              rows={2}
-            />
-            <button type="submit" className="disc-btn">Post</button>
+      <Header />
+      <main className="disc-page">
+        <div className="page-inner">
+          <div className="disc-header">
+            <span className="section-number">discussion</span>
+            <h1 className="section-heading">leave a note</h1>
+            <p className="disc-intro">
+              say hi, leave feedback, or just scribble something.
+            </p>
           </div>
-        </form>
 
-        <div className="disc-list">
-          {comments.length === 0 ? (
-            <p className="disc-empty">No comments yet.</p>
-          ) : (
-            comments.map((c, i) => (
-              <motion.article
-                key={c.id}
-                className="disc-item"
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.03 * i }}
-              >
-                <div className="disc-item-head">
-                  <span className="disc-author">{c.author}</span>
-                  <span className="disc-date">{formatDate(c.createdAt)}</span>
-                </div>
-                <p className="disc-body">{c.text}</p>
-              </motion.article>
-            ))
-          )}
+          <form className="disc-form" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="your name"
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+              className="disc-input disc-name-input"
+              aria-label="Your name"
+            />
+            <div className="disc-row">
+              <textarea
+                placeholder="write something…"
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                className="disc-input disc-text-input"
+                rows={3}
+                aria-label="Your comment"
+              />
+              <button type="submit" className="disc-submit">
+                post
+              </button>
+            </div>
+          </form>
+
+          <div className="disc-comments">
+            {comments.length === 0 ? (
+              <p className="disc-empty">no comments yet. be the first.</p>
+            ) : (
+              comments.map((c) => (
+                <article key={c.id} className="disc-comment">
+                  <div className="disc-comment-head">
+                    <span className="disc-author">{c.author}</span>
+                    <span className="disc-date">{formatDate(c.createdAt)}</span>
+                  </div>
+                  <p className="disc-body">{c.text}</p>
+                </article>
+              ))
+            )}
+          </div>
         </div>
       </main>
+      <Footer />
     </motion.div>
   );
 };
